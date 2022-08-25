@@ -1,0 +1,9 @@
+<apex:page standardController="Campaign" extensions="cc_SyncEmailActivitiesController" action="{!syncEmailActivities}">
+
+    <apex:outputPanel id="refreshPage" rendered="{!refreshPage}">
+        <script>
+            window.top.location='/{!Campaign.id}';
+           </script>
+    </apex:outputPanel>
+<!-- End Default Content REMOVE THIS -->
+</apex:page>

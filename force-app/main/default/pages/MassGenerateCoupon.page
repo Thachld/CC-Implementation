@@ -1,0 +1,22 @@
+<apex:page standardController="Campaign" extensions="MassGenerateCoupon_Controller">
+    <apex:form >
+        <apex:outputlabel value="Select Upload file" style="font-weight: 700;" />
+        &emsp;
+        <apex:selectList value="{!selectedfileId}" multiselect="false" size="1">
+            <apex:selectOptions value="{!fileoptions}"></apex:selectOptions>
+        </apex:selectList>     
+        &emsp;     
+        <apex:commandButton value="Import Coupon" action="{!importFile}" reRender="refresh" style="font-weight: 700;"/>              
+
+        <apex:outputPanel id="refresh" rendered="true">
+            <apex:outputPanel id="refresh1" rendered="{!refreshPage}">
+                <script>
+                    window.top.location='/{!camp.id}';
+                </script>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        <apex:pageMessages ></apex:pageMessages>
+ 	</apex:form>    
+
+     
+</apex:page>

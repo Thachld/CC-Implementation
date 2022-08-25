@@ -1,0 +1,61 @@
+<template>
+    <footer class="footer">
+        <div class="container section-padding">
+            <section class="footer-nav">
+                <a href={getQCHomeLink} target="_blank">
+                    <img src={logodarkIcon} alt="logo dark theme" width="127" height="40">
+                </a>
+                
+                <div class="wrapper"><div class="help">
+                    <ul>
+                        <li>{LABEL_LEGAL}</li>
+                        <li><a href={getTermOfUse} target="_self">{LABEL_TERM_OF_USE}</a></li>
+                        <li><a href={getPrivacyPolicies} target="_self">{LABEL_PRIVACY_POLICY}</a></li>
+                        <li><a href={getContactLink} target="_blank">{LABEL_CONTACT_US}</a></li>
+                    </ul>
+                </div>
+                <div class="address">
+                    <article>
+                        <header>{LABEL_HEADQUATER}</header>
+                        <a class="address-item" href="https://goo.gl/maps/G8pL15HwQgzkaFv46">
+                            <img src={locationIcon} class="footer-icon" alt="icon" width="12" height="14">{LABEL_HEAD_LOCATION}</a>
+                        <a class="address-item" href="tel:+842435123776">
+                            <img src={phoneIcon} class="footer-icon" alt="icon" width="12" height="14">{LABEL_HEAD_PHONE}</a>
+                    </article>
+                    <article>
+                        <header>{LABEL_BRANCH_OFFICE}</header>
+                        <a class="address-item" href="https://goo.gl/maps/Nf3Yxt75pU2qda337">
+                            <img src={locationIcon} class="footer-icon" alt="icon" width="12" height="14">{LABEL_BRANCH_LOCATION}</a>
+                        <a class="address-item" href="tel:+842862889900">
+                            <img src={phoneIcon} class="footer-icon" alt="icon" width="12" height="14">{LABEL_BRANCH_PHONE}</a>
+                    </article>
+                </div>
+                    <article class="contact">
+                        <header>{LABEL_CONTACT_US}</header>
+                            <main>
+                                <a class="address-item" href="mailto:sales@coccoc.com">
+                                    <img src={emailIcon} class="footer-icon" alt="icon" width="12" height="14">Email: sales@coccoc.com</a>
+                                <a class="address-item" href="tel:+842438838838">
+                                    <img src={phoneIcon} class="footer-icon" alt="icon" width="12" height="14">Hotline: (024) 38 838 838.</a>
+                                <a class="address-item" href="skype:coccoc_qc?chat">
+                                    <img src={skypeIcon} class="footer-icon" alt="icon" width="12" height="14">Skype: coccoc_qc</a><br>
+                                <a href="http://online.gov.vn/Home/WebDetails/8050" target="_blank" class="address-item">
+                                    <img src={symbolIcon} width="107" alt="bộ công thương"></a>
+                            </main>
+                    </article>
+                </div>
+            </section>
+            <section class="bottom">
+                <div class="copyright">
+                    <span>{LABEL_COPYRIGHT}</span>
+                </div>
+                <div class="social">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/CocCocQuangCao/">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI0IDEyQzI0IDUuMzcxOSAxOC42MjgxIDAgMTIgMEM1LjM3MTkgMCAwIDUuMzcxOSAwIDEyQzAgMTcuOTkwNyA0LjM4NzUgMjIuOTU0NyAxMC4xMjUgMjMuODU0N1YxNS40Njg4SDcuMDc4MVYxMkgxMC4xMjVWOS4zNTYyNUMxMC4xMjUgNi4zNDkyIDExLjkxNTYgNC42ODc1IDE0LjY1NzggNC42ODc1QzE1Ljk3MDMgNC42ODc1IDE3LjM0MzggNC45MjE4OCAxNy4zNDM4IDQuOTIxODhWNy44NzVIMTUuODI5N0MxNC4zMzkxIDcuODc1IDEzLjg3NSA4LjgwMDggMTMuODc1IDkuNzVWMTJIMTcuMjAzMUwxNi42NzExIDE1LjQ2ODhIMTMuODc1VjIzLjg1NDdDMTkuNjEyNSAyMi45NTQ3IDI0IDE3Ljk5MDcgMjQgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="facebook" width="32" height="32"></a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/user/CocCocCom">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMiAwQzUuMzcyNiAwIDAgNS4zNzI2IDAgMTJDMCAxOC42Mjc0IDUuMzcyNiAyNCAxMiAyNEMxOC42Mjc0IDI0IDI0IDE4LjYyNzQgMjQgMTJDMjQgNS4zNzI2IDE4LjYyNzQgMCAxMiAwWk0xNy4wMDA4IDcuODc0NjVDMTcuNTUxNSA4LjAyNTggMTcuOTg1MyA4LjQ3MTEgMTguMTMyNSA5LjAzNjZDMTguNCAxMC4wNjE1IDE4LjQgMTIuMiAxOC40IDEyLjJDMTguNCAxMi4yIDE4LjQgMTQuMzM4NCAxOC4xMzI1IDE1LjM2MzRDMTcuOTg1MyAxNS45Mjg5IDE3LjU1MTUgMTYuMzc0MiAxNy4wMDA4IDE2LjUyNTRDMTYuMDAyNyAxNi44IDEyIDE2LjggMTIgMTYuOEMxMiAxNi44IDcuOTk3MyAxNi44IDYuOTk5MTUgMTYuNTI1NEM2LjQ0ODM1IDE2LjM3NDIgNi4wMTQ2IDE1LjkyODkgNS44Njc0IDE1LjM2MzRDNS42IDE0LjMzODQgNS42IDEyLjIgNS42IDEyLjJDNS42IDEyLjIgNS42IDEwLjA2MTUgNS44Njc0IDkuMDM2NkM2LjAxNDYgOC40NzExIDYuNDQ4MzUgOC4wMjU4IDYuOTk5MTUgNy44NzQ2NUM3Ljk5NzMgNy42IDEyIDcuNiAxMiA3LjZDMTIgNy42IDE2LjAwMjcgNy42IDE3LjAwMDggNy44NzQ2NVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMC43OTk4IDE0LjRWMTAuNEwxMy45OTk4IDEyLjQwMDFMMTAuNzk5OCAxNC40WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" alt="youtube" width="32" height="32"></a>
+                </div>
+            </section>
+            </div>
+        </footer>
+</template>

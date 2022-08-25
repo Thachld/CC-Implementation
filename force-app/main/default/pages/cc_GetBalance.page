@@ -1,0 +1,9 @@
+<apex:page standardController="Payment__c" extensions="cc_GetBalanceController" action="{!getBalance}" >
+    <apex:outputPanel id="refreshPage" rendered="{!refreshPage}">
+        <script>
+           window.top.location='/{!Payment__c.id}';
+        </script>
+    </apex:outputPanel>
+
+    <apex:pageMessages ></apex:pageMessages>
+</apex:page>

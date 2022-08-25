@@ -1,0 +1,8 @@
+.scrollContainer {
+    max-height: 500px; 
+    overflow: auto;
+    position: relative;
+}
+.scrollArea {
+    position: relative;
+}

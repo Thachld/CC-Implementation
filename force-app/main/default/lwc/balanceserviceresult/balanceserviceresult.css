@@ -1,0 +1,8 @@
+.custom-accordion{
+    --slds-c-accordion-heading-font-size:1.5rem;   
+}
+
+.custom-accordion .slds-accordion__summary .slds-accordion__summary-heading{
+    font-weight:700 !important;
+    font-style: bold !important;
+}

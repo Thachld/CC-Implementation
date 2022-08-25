@@ -1,0 +1,59 @@
+<template>
+    <div class="slds-box">                        
+        <div class="slds-grid slds-wrap">   
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">                    
+                <div class={marginAround}>   
+                        
+                    <c-lookup errors={errors}
+                            onsearch={handleLookupSearch}
+                            onselectionchange={handleLookupSelectionChange}
+                            label="QC Account"
+                            placeholder="Search..."
+                            is-multi-entry={isMultiEntry}
+                            required>
+                    </c-lookup>
+                    <!-- <template if:true={isNotSelectUserId}>
+                        <div class="slds-text-color_error">Please select QC Account</div>
+                    </template> -->
+                    
+                    <lightning-checkbox-group name="transType_cbg"
+                        label="Transaction Type."
+                        options={transTypeOptions}
+                        value={selectedTransType}
+                        onchange={handleCheckedTransType}>
+                    </lightning-checkbox-group>  
+
+                    <lightning-input type="datetime" required="true" label="Enter a date/time value" value={defaultDattime} onchange={handleOnchangeDate}></lightning-input>
+                </div>
+
+                <div class={marginAround}> 
+                    <lightning-button title="Get Balance" variant="brand-outline" label="Get Balance" icon-name="utility:search" onclick={handleGetBalanceService}></lightning-button>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_2-of-3">
+                    
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                <template if:true={isSpinner}>
+                    <c-coccocspinner spinnerclass = 'medium-spinner'></c-coccocspinner>
+                </template>
+
+                <!-- <template if:false={isSpinner}>
+                    <c-balanceservicelistresult balancedatas={balanceDatas} showwithdraw={showWithdraw} showsummary={showSummary} maxrowselection = 10 oncreatedwithdrawal={handleCreatedWithdrawal}></c-balanceservicelistresult>  
+                </template> -->
+
+                <template if:false={isSpinner}>
+                    <template if:true={balanceresults}>
+                        <c-balanceserviceresult balancedatas={balanceresults} 
+                                                showwithdraw={showWithdraw} 
+                                                showsummary={showSummary} 
+                                                activesections ={activesections}
+                                                maxrowselection = 10
+                                                oncreatedwithdrawal={handleCreatedWithdrawal}></c-balanceserviceresult>  
+                        </template>
+                </template>
+            </div>
+        </div>        
+    </div>
+
+</template>

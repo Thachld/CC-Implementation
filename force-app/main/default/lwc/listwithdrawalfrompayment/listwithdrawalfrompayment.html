@@ -1,0 +1,139 @@
+<template>
+    <table class="slds-table slds-table_bordered slds-table_col-bordered slds-max-medium-table_stacked-horizontal slds-table_fixed-layout">
+        <thead>
+            <tr>
+                <th class="slds-is-resizable" scope="col" aria-label="From Transaction" style="width: 7%; white-space: pre-wrap;">                                   
+                    From Transaction
+                </th>
+
+                <th class="slds-is-resizable" scope="col" aria-label="Withdrawal Type" style="width: 10%; white-space: pre-wrap;" > 
+                    Transaction Type
+                </th>
+
+                <th class="slds-is-resizable" scope="col" aria-label="Payment Name" style="width: 15%; white-space: pre-wrap;" > 
+                    Payment Name<abbr class="slds-required">*</abbr>
+                </th> 
+                
+                <th class="slds-is-resizable" scope="col" aria-label="Transfer Type" style="width: 10%; white-space: pre-wrap;" > 
+                    Transfer Type<abbr class="slds-required">*</abbr>
+                </th> 
+
+                <th class="slds-is-resizable" scope="col" aria-label="Transaction Balance" style="width: 10%; white-space: pre-wrap;">  
+                    Transaction Balance         
+                </th>
+
+                <th class="slds-is-resizable" scope="col" aria-label="Withdrawal Amount" style="width: 10%; white-space: pre-wrap;" >                             
+                    Withdrawal Amount<abbr class="slds-required">*</abbr>
+                </th>
+                
+                <th class="slds-is-resizable" scope="col" aria-label="Note" > 
+                    Note<abbr class="slds-required">*</abbr>
+                </th>
+                
+                <th class="slds-is-resizable" scope="col" aria-label="Create Transfer Payment?" style="width: 8%; white-space: pre-wrap;">                             
+                    Create Transfer Payment?
+                </th>
+
+                <th class="slds-is-resizable" scope="col" aria-label="Transfer to QC Account" style="width: 13%; white-space: pre-wrap;" >                             
+                    Transfer To<abbr class="slds-required">*</abbr>
+                </th>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            <template for:each={result} for:item="item">
+                <tr class="slds-hint-parent" key={item.transid} for:index="index"> 
+
+                    <td scope="gridcell" data-label="From Transaction" style="white-space:normal;">                       
+                        <a href="javascript:void(0);" data-pyid={item.pyid} onclick={handleOpenPayment}>
+                            <lightning-formatted-text value={item.transid}></lightning-formatted-text>                            
+                        </a>                    
+                    </td>
+
+                    <td scope="gridcell" data-label='Type' style="white-space:normal;">
+                        <lightning-formatted-text value={item.type}></lightning-formatted-text>
+                    </td>
+
+                    <td scope="gridcell" data-label='Payment Name' style="white-space:normal;">
+                        <lightning-input    data-transid={item.transid}
+                                            data-input="lightning-input"
+                                            type="text"
+                                            variant="label-hidden" 
+                                            value={item.name}
+                                            required
+                                            onchange={handlePaymentNameChange}></lightning-input>
+                    </td>
+
+                    <td scope="gridcell" data-label='Refund Type' style="white-space:normal;">
+                        <lightning-combobox
+                                data-transid={item.transid}                                
+                                value={item.refundtype}
+                                variant="label-hidden" 
+                                placeholder="None..."
+                                options={item.retundTypeOption}
+                                onchange={handleChangeRefundType} 
+                                required></lightning-combobox>
+                    </td>
+
+                    <td role="gridcell" data-label="Current Balance" style="white-space:normal;">
+                        <lightning-formatted-number value={item.balance} 
+                                                    format-style="currency" 
+                                                    currency-code="VND"
+                                                    minimum-fraction-digits="0"
+                                                    maximum-fraction-digits="0"></lightning-formatted-number>
+                    </td>
+                    <td scope="gridcell" data-label='Withdrawal Amount' style="white-space:normal;">
+                        <lightning-input    data-transid={item.transid}
+                                            data-input="lightning-input"
+                                            type="number" 
+                                            variant="label-hidden" 
+                                            min="1"
+                                            message-when-range-underflow = "Request withdrawal amount should greater than 0"
+                                            max={item.balance}
+                                            message-when-range-overflow	= "Request withdrawal amount should be less than current transaction balance"
+                                            formatter="currency"
+                                            value={item.amount}
+                                            required                                           
+                                            onchange={handleWithdrawalAmountChange}
+                                            ></lightning-input>
+                    </td>
+
+                    <td scope="gridcell" data-label='Note' style="white-space:normal;">
+                        <lightning-textarea     data-transid={item.transid}
+                                                data-input="lightning-input"
+                                                variant="label-hidden" 
+                                                value={item.note}      
+                                                placeholder="Note..."
+                                                required
+                                                onchange={handleNoteChange}></lightning-textarea>
+                    </td>                    
+                    
+                    <td scope="gridcell" data-label='Create Transfer Payment?' style="white-space:normal;">
+                            <lightning-input    data-transid={item.transid}                                            
+                                                type="checkbox" 
+                                                variant="label-hidden" 
+                                                value={item.iscreatetransfer}
+                                                checked={item.iscreatetransfer}      
+                                                disabled=true                                
+                                                onchange={handleCheckedCreateTransferPayment}></lightning-input>
+                        </td>
+
+                    <td scope="gridcell" data-label='Transfer To' style="white-space:normal;">
+                        <template if:true={item.iscreatetransfer}>
+                                <c-lookup errors={item.errors}
+                                    onsearch={handleLookupSearch}
+                                    onselectionchange={handleLookupSelectionChange}
+                                    label=""
+                                    uniqueid={item.transid}
+                                    placeholder=""
+                                    is-multi-entry={isMultiEntry}
+                                    is-required={item.iscreatetransfer}>
+                                </c-lookup>     
+                        </template>                       
+                    </td>
+                </tr>                
+            </template> 
+        </tbody>
+    </table>
+</template>

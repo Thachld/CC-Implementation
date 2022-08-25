@@ -1,0 +1,8 @@
+<apex:page standardController="Campaign" extensions="MassGenerateCoupon_Controller" action="{!massGenerateCouponToQC}">
+    <apex:outputPanel id="refreshPage" rendered="{!refreshPage}">
+        <script>
+           window.top.location='/{!camp.id}';
+        </script>
+    </apex:outputPanel>
+    <apex:pageMessages ></apex:pageMessages>
+</apex:page>

@@ -1,0 +1,54 @@
+<aura:component controller = "cc_discountController" implements = "force:hasrecordId,flexipage:availableForAllPageTypes">
+    <!--Init handler which is call initRecords js function on component Load-->  
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!--declare aura attributes-->
+    <aura:attribute name = "recordId" type="String"/>
+    <aura:attribute name = "discounts" type="Discount__c[]" description=""/>
+    <aura:attribute name = "newRecord" type="Discount__c" default = "{'sObjectType':'Discount__c',
+                                                                                'Discout_Bonus_By__c': 'Spending',
+                                                                                'Type__c': ''}"/>
+
+    <aura:attribute name="showSaveCancelBtn" type="boolean" default="false" description="flag for rendered save and cancel buttons in aura:if "/>
+
+    <aura:handler name = "discountEvent" event="c:cc_DiscountEvt" action="{!c.handlerDiscountAction}"/>
+    
+    <div class="slds-section slds-is-open" aura:id = "discountByRangeSection">
+        <h3 class="slds-section__title">
+            <button class="slds-button slds-section__title-action" onclick="{!c.handlediscountByRange}">
+                <lightning:icon iconName="utility:switch" size="x-small" 
+                                class="slds-section__title-action-icon slds-button__icon slds-button__icon_left"
+                                />
+                <span class="slds-section__title-action" title="Section Title">Discount By Rank</span>
+            </button>
+        </h3>
+        <div class="slds-section__content" aria-hidden="false">     
+            <div class="slds-m-around_medium">
+                <!--Data Table-->     
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr class="slds-text-title--caps" style="height: 45px; font-size: 14px;">
+                            <th scope="col" style="width: 5%;"><div class="slds-truncate" title="Id">No.<abbr class="slds-required h2--Diavlo-Bold">*</abbr></div></th> 
+                            <th scope="col" style="width: 20%;"><div class="slds-truncate" title="Discount By">Discount By<abbr class="slds-required h2--Diavlo-Bold">*</abbr></div></th>
+                            <th scope="col" style="width: 20%;"><div class="slds-truncate" title="Discount Type">Discount Type<abbr class="slds-required h2--Diavlo-Bold">*</abbr></div></th>
+                            <th scope="col" style="width: 15%;"><div class="slds-truncate" title="Min">Min<abbr class="slds-required h2--Diavlo-Bold">*</abbr></div></th>
+                            <th scope="col" style="width: 15%;"><div class="slds-truncate" title="Max">Max<abbr class="slds-required h2--Diavlo-Bold">*</abbr></div></th>
+                            <th scope="col" style="width: 10%;"><div class="slds-truncate" title="Rate">Rate<abbr class="slds-required h2--Diavlo-Bold">*</abbr></div></th>  
+                            <th scope="col" style="width: 15%;"><div class="slds-truncate" title="Rate">Action</div></th>                     
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                    <!--### display all records of AccountList attribute one by one by aura:iteration ###-->
+                        <aura:iteration items="{!v.discounts}" var="dis" indexVar="sNo">
+                        <!-- Child Lightning Component --> 
+                            <c:cc_discountItem singleRec="{!dis}"
+                                            showSaveCancelBtn="{!v.showSaveCancelBtn}"
+                                            sNo="{!sNo + 1}" />
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+        </div>        
+    </div>
+</aura:component>

@@ -1,0 +1,158 @@
+<aura:component controller="cc_SendEmailWithTemplateController" implements="force:appHostable,force:hasRecordId,force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes" access="global">
+
+    <!--Part 1 [for attribute declare]-->
+    <aura:attribute name="loaded" type="Boolean" default="true" />
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="email" type="string" />
+    <aura:attribute name="subject" type="string" />
+    <aura:attribute name="body" type="string" />
+    <aura:attribute name="mailStatus" type="boolean" default="false" />
+    <aura:attribute name="emailfolderVSTemplateList" type="object[]" default="[]" />
+    <aura:attribute name="emailFolderList" type="object[]" default="[]" />
+    <aura:attribute name="emailTemplateList" type="object[]" default="[]" />
+    <aura:attribute name="recipientTypes" type="object[]" default="[
+                                                            {'name': 'Contact', 'value': 'Contact'},
+                                                            {'name': 'Lead', 'value': 'Lead'}
+                                                            ]" />
+    <aura:attribute name="emailbody" type="String" default="" />
+    <aura:attribute name="folderId1" type="String" default="" />
+    <aura:attribute name="templateId" type="String" default="" />
+    <aura:attribute name="recipient" type="String" default="" />
+
+    <aura:attribute name = "files" type = "ContentDocument[]"/>
+    <aura:attribute name = "accept" type = "List" default="['.pdf','.zip']"/>
+    <aura:attribute name = "multiple" type = "Boolean" default="true"/>     
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!--Header-->
+    <!-- <div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading–medium">Custom Send Campaign Email</h4>
+    </div> -->
+    <!--Header-->
+    <!-- <aura:html tag="style">
+            .slds-p-around–medium {
+                padding: 0rem !important;
+            }
+            .slds-modal__content{
+                overflow-y:hidden !important;
+                height:unset !important;
+                max-height:unset !important;
+            }
+            .cuf-content {
+                padding: 0 0rem !important;
+            }
+    </aura:html> -->
+
+    <div class="slds-modal__content slds-p-left_medium slds-p-right_medium slds-align_absolute-left slds-size_1-of-1 slds-is-relative">
+        
+            <div class="slds-form__stacked">
+                <!--Test for template -->
+                <label><b></b></label>
+                <div class="slds-form-element__control">
+                    <div class="slds-form-element" aura:id="selectFolder">
+                        <label class="slds-form-element__label" for="select-Folder">Select Folder <abbr class="slds-required" title="">* </abbr></label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-select_container">
+                                <select class="slds-select" id="select-Folder"
+                                    onchange="{!c.onSelectEmailFolder}">
+                                    <option value="">Please Select Folder</option>
+                                    <aura:iteration items="{!v.emailfolderVSTemplateList}" var="folder">
+                                        <option value="{!folder.folderId}">{!folder.folderName}</option>
+                                    </aura:iteration>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-form-element" aura:id="selectTemplate">
+                        <label class="slds-form-element__label" for="select-Template">Select Template <abbr class="slds-required" title="">* </abbr></label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-select_container">
+                                <select class="slds-select" id="select-Template"
+                                    onchange="{!c.onSelectEmailTemplate}">
+                                    <option value="">Please Select Email Template</option>
+                                    <aura:iteration items="{!v.emailTemplateList}" var="template">
+                                        <option value="{!template.emailTemplateId}">
+                                            {!template.emailTemplatename}</option>
+                                    </aura:iteration>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="CC">Select Recipient Type <abbr class="slds-required" title="">* </abbr></label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-select_container">
+                                <select class="slds-select" id="select-Template"
+                                    onchange="{!c.onSelectRecipientTypes}">
+                                    <option value="">Please Select Recipient Type</option>
+                                    <aura:iteration items="{!v.recipientTypes}" var="recipient">
+                                        <option value="{!recipient.value}">
+                                            {!recipient.name}</option>
+                                    </aura:iteration>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="CC">Subject</label>
+                        <div class="slds-form-element__control">
+                            <!-- <ui:inputText class="slds-input" aura:id="subject" value="{!v.subject}" placeholder="Subject" /> -->
+                            <lightning:formattedText value="{!v.subject}" class="mail-subject"/>
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="textareaSample2">Mail Body</label>
+                        <div class="slds-form-element__control">
+                            <!-- <lightning:inputRichText aura:id="body" value="{!v.emailbody}" /> -->
+                            <lightning:formattedRichText aura:id="body" value="{!v.emailbody}" />
+                        </div>
+                    </div>
+                    <br />
+
+                </div>
+            </div>        
+    </div>
+
+    <div class="slds-grid slds-wrap slds-p-left_medium slds-p-right_medium">  
+        <div class="slds-size--1-of-1 slds-large-size--1-of-1">   
+            <div class="slds-grid slds-wrap file-grid">     
+                <aura:iteration items="{!v.files}" var = "file">
+                    <div class="slds-size--10-of-12 slds-large-size--10-of-12 slds-text-align_left file-col slds-p-left_x-small">
+                        <span class="slds-button slds-button_icon" tabindex="0" title="icon">
+                            <lightning:icon iconName="{!'doctype:' + file.FileExtension}" alternativeText="{!file.Title}" size="small"/>
+                        </span>
+                        <span class="slds-text-truncate slds-m-left_small">
+                            {!file.Title}
+                        </span>
+                    </div> 
+                    <div class="slds-size--2-of-12 slds-large-size--2-of-12 slds-text-align_right file-col slds-p-right_x-small">                       
+                        <a class="slds-button slds-button_icon" tabindex="0" title="remove" href="#" data-id="{!file.Id}" onclick="{!c.handleDeleteFile}">
+                            <lightning:icon iconName="utility:delete" size="xx-small" alternativeText="remove" />
+                        </a>
+                                                                  
+                    </div>  
+                </aura:iteration>     
+            </div>   
+        </div>
+        <div class="slds-size--1-of-1 slds-large-size--1-of-1">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-2 slds-m-top_x-small slds-m-bottom_x-small">
+                    <lightning:fileUpload   label="" 
+                                            multiple="{!v.multiple}" 
+                                            accept="{!v.accept}" 
+                                            recordId="{!v.recordId}" 
+                                            onuploadfinished="{!c.handleUploadFinished}" />
+                </div> 
+            </div> 
+        </div>
+    </div>
+               
+    <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+        <button class="slds-button slds-button_neutral" onclick="{!c.closeMessage}">Cancel</button>
+        <button class="slds-button slds-button_brand" onclick="{!c.sendMail}">Send</button>
+    </div>            
+        
+</aura:component>

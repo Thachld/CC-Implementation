@@ -1,0 +1,49 @@
+<template>
+    <template if:true={summary}>
+        <div class="slds-box">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <label class="slds-form-element__label slds-text-heading_small">QC Account: </label>
+                    <span class="slds-text-heading_small">
+                        <a href="javascript:void(0);" data-qcid={summary.qcId} onclick={handleOpenQCAccount} style="white-space: pre-wrap;">
+                            {summary.userEmail}
+                        </a>
+                    </span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <label class="slds-form-element__label slds-text-heading_small">Datetime: </label>
+                    <span class="slds-text-heading_small">
+                        <lightning-formatted-text value={summary.date_time}></lightning-formatted-text>
+                    </span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                    <label class="slds-form-element__label slds-text-heading_small">Total Money: </label>
+                    <span><b><lightning-formatted-number maximum-fraction-digits="2"  value={summary.total_money}></lightning-formatted-number></b></span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                    <label class="slds-form-element__label slds-text-heading_small">Real Money: </label>
+                    <span><b><lightning-formatted-number maximum-fraction-digits="2"  value={summary.real_money}></lightning-formatted-number></b></span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                    <label class="slds-form-element__label slds-text-heading_small">Coupon Money: </label>
+                    <span><b><lightning-formatted-number maximum-fraction-digits="2"  value={summary.coupon_money}></lightning-formatted-number></b></span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4">
+                    <label class="slds-form-element__label slds-text-heading_small">Refund Money: </label>
+                    <span><b><lightning-formatted-number maximum-fraction-digits="2"  value={summary.refund_money}></lightning-formatted-number></b></span>
+                </div>
+            </div>
+        </div>        
+    </template>
+
+    <template if:false={summary}>
+        <div class = "slds-text-align_center">
+            There no summary!
+        </div>
+    </template>
+</template>

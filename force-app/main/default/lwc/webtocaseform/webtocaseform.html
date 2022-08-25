@@ -1,0 +1,83 @@
+<template>  
+    <template if:false={isSpinner}>
+        <div class="slds-theme_default">  
+            <template if:false={isCreated}>
+                <div class="slds-m-around_medium">  
+                    <h2 class="contact-form-title">{LABEL_TITLE}</h2>
+                </div>
+                <div class="slds-m-around_medium">  
+                    <lightning-input class="ccinput" type="text" required="true" label ={LABEL_NAME} onchange={onNameChange}></lightning-input>  
+                    <lightning-input type="tel" 
+                                    required="true" 
+                                    label ={LABEL_PHONE} 
+                                    onchange={onPhoneChange}                            
+                                    pattern="(\+84|0)+(3[2-9]|5[6|8|9]|9\d(?!5)|8[1-9]|7[0|6-9])+([0-9]{7})\b"
+                                    message-when-pattern-mismatch={LABEL_PHONE_PATTERN}
+                                    ></lightning-input>  
+                    <lightning-input 
+                        type="email" 
+                        required="true" 
+                        label ={LABEL_EMAIL} 
+                        onchange={onEmailChange}                >
+                    </lightning-input>
+                    <lightning-input type="text" required="true" label ={LABEL_SUBJECT} onchange={onSubjectChange}></lightning-input>  
+                    <lightning-textarea label={LABEL_DESCRIPTION} onchange={onDescriptionChange} ></lightning-textarea>  
+                    
+                    <!-- <template if:true={isUploadfile}>
+                        <div class="attachfile">
+                            <a href="javascript:void(0);">
+                                <span>{fileName}</span> 
+                                <span class="delete-icon" onclick={handleDeletefile}>
+                                    <svg focusable="false" 
+                                    data-key="delete" 
+                                    aria-hidden="true" 
+                                    viewBox="0 0 52 52" 
+                                    class="slds-icon slds-icon_xx-small"><g><g>
+                                        <path d="M45.5 10H33V6c0-2.2-1.8-4-4-4h-6c-2.2 0-4 1.8-4 4v4H6.5c-.8 0-1.5.7-1.5 1.5v3c0 .8.7 1.5 1.5 1.5h39c.8 0 1.5-.7 1.5-1.5v-3c0-.8-.7-1.5-1.5-1.5zM23 7c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v3h-6V7zM41.5 20h-31c-.8 0-1.5.7-1.5 1.5V45c0 2.8 2.2 5 5 5h24c2.8 0 5-2.2 5-5V21.5c0-.8-.7-1.5-1.5-1.5zM23 42c0 .6-.4 1-1 1h-2c-.6 0-1-.4-1-1V28c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v14zm10 0c0 .6-.4 1-1 1h-2c-.6 0-1-.4-1-1V28c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v14z"></path>
+                                    </g></g></svg>
+                                </span>
+                            </a></div>
+                    </template>
+                    <template if:false={isUploadfile}>
+                        <lightning-input type="file" 
+                                        onchange={onFileUpload} 
+                                        accept=".xlsx, .xls, .csv, .png, .jpeg, .jpg, .doc, .docx, .pdf, .txt"                                
+                                        label={LABEL_FILE}></lightning-input>  
+                    </template>             -->
+                </div>  
+                <div class="slds-m-around_medium">
+                    <c-google-captcha oncaptcha={handleUpdate}></c-google-captcha><br/>
+                    <template if:true={notvalidCaptcha}>
+                        <p class="slds-form-element__help slds-text-color_error">{LABEL_REQUIRED_CAPTCHA}</p>
+                    </template>
+                </div>
+                <div class="slds-m-around_medium">    
+                    <div class="save-btn" >
+                        <lightning-button class="button" label={LABEL_SAVECASE} onclick={saveCase}> </lightning-button>  
+                    </div>                
+                </div>   
+            </template>  
+            <template if:true={isCreated}>
+                <div class="slds-box slds-theme_default">
+                    <div class="slds-m-around_medium">
+                        <h1 class="msg-title">{LABEL_SUCCESS}</h1>
+                    </div>
+                    <div class="slds-m-around_medium slds-m-top_large">
+                        <p class="msg-content">{LABEL_SUCCESS_CONTENT}</p>
+                    </div>
+                    <div class="slds-m-around_medium">
+                        <lightning-button class="button" label={LABEL_BACK_TO_HOME} onclick={handleBackToHome}> </lightning-button>  
+                    </div>
+                    
+                </div>
+            </template>    
+        </div>  
+    </template>
+    
+    <template if:true={isSpinner}>
+        <div class="slds-p-around_large">
+            <c-coccocspinner spinnerclass = 'medium-spinner'></c-coccocspinner>
+        </div>
+    </template>
+   
+  </template>

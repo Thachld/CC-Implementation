@@ -1,0 +1,32 @@
+<template>
+    <lightning-quick-action-panel title="Select QC Account for Transfering">
+        <lightning-card title="Select QC Account for Transfering" icon-name="custom:custom57">
+            <div class="slds-var-m-around_medium">
+                <lightning-input type="search" onchange={handleKeyChange}
+                    class="slds-show slds-is-relative slds-var-m-bottom_small" label="Search">
+                </lightning-input>
+
+                <div class="slds-m-top_small slds-m-bottom_small">   
+
+                    <template for:each={selectedAccounts} for:item="item">
+                        <span key={item.Id}>
+                            <lightning-pill
+                                label={item.label}
+                                title={item.label}
+                                onremove={handleRemoveSelectedItem}
+                                name={item.Id}>
+                                <lightning-icon icon-name="custom:custom26"></lightning-icon>
+                            </lightning-pill>
+                        </span>
+                    </template>                   
+                </div>
+            </div>
+            <c-accountselection result={gridData} allresult={gridAllData} record-id={recordId} onselectedrecs={handleSelectedRec}></c-accountselection>
+        </lightning-card>
+        
+        <div slot="footer">            
+            <lightning-button variant="brand" label="Save" onclick={handleAddAccount} class="slds-m-right_x-small"></lightning-button>
+            <lightning-button variant="neutral" label="Cancel" onclick={closeAction} ></lightning-button>
+          </div>
+    </lightning-quick-action-panel>
+</template>

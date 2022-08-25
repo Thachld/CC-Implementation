@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Economy &amp; Finance</fullName>
+        <default>true</default>
+        <label>Real Estate - Finance - Economy</label>
+    </customValue>
+    <customValue>
+        <fullName>Education &amp; Culture</fullName>
+        <default>false</default>
+        <label>Culture - Education</label>
+    </customValue>
+    <customValue>
+        <fullName>Entertainment</fullName>
+        <default>false</default>
+        <label>Entertainment - Youth - LifeStyle</label>
+    </customValue>
+    <customValue>
+        <fullName>News</fullName>
+        <default>false</default>
+        <label>News</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Technology</fullName>
+        <default>false</default>
+        <label>Tech - Hi Tech</label>
+    </customValue>
+    <customValue>
+        <fullName>Women &amp; Family</fullName>
+        <default>false</default>
+        <label>Women &amp; Family</label>
+    </customValue>
+    <customValue>
+        <fullName>Special Games</fullName>
+        <default>false</default>
+        <label>Special Games</label>
+    </customValue>
+    <customValue>
+        <fullName>Health</fullName>
+        <default>false</default>
+        <label>Health</label>
+    </customValue>
+    <customValue>
+        <fullName>Men &amp; Sport</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Men &amp; Sport</label>
+    </customValue>
+    <customValue>
+        <fullName>Culture - Education</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Culture - Education</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech - Hi Tech</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Tech - Hi Tech</label>
+    </customValue>
+    <customValue>
+        <fullName>Entertainment - Youth - LifeStyle</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Entertainment - Youth - LifeStyle</label>
+    </customValue>
+    <description>Pub UI</description>
+    <masterLabel>Category</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

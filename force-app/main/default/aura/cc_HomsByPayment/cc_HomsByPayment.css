@@ -1,0 +1,24 @@
+.THIS {
+    background-color: #FFFFFF;
+    border-radius: 3px;
+}
+
+.THIS .title{
+    font-weight: bold;
+}
+
+.THIS .cc-table-header{
+    height: 40px;
+}
+
+.THIS .small-text{
+    font-size: 10px;
+}
+
+.THIS .view-more{
+    text-decoration: none;
+}
+
+.THIS .view-more:hover, .THIS .view-more:active{
+    text-decoration: none;
+}

@@ -1,0 +1,142 @@
+<template>
+    <div class="slds-box">
+        <template if:true={isSpinner}>
+            <c-coccocspinner spinnerclass = 'medium-spinner'></c-coccocspinner>
+        </template>
+
+        <template if:false={isSpinner}>     
+            <lightning-tabset variant="scoped" active-tab-value ="monitoringtab">
+                <lightning-tab label="Monitoring KPI Batch Jobs" icon-name="custom:custom109" value = "monitoringtab">   
+            <div class="slds-grid slds-wrap">   
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <div class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
+                        <span class="slds-assistive-text">warning</span>
+                        <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small" title="Description of icon when needed">
+                          <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+                          </svg>
+                        </span>
+                        <h2>Email will send to every Sales/Supports or Managers by default when you run Calculation KPI for Sale/Support or manager batch. 
+                            Please consider to control the option for send email to Sales/Supports or Managers before running batch by tab "KPI Custom Setting".
+                            or going to update on Custom Setting in Setup<a href="https://coccoc.lightning.force.com/lightning/setup/CustomSettings/page?address=%2Fsetup%2Fui%2FviewCustomSettingsData.apexp%3FappLayout%3Dsetup%26ltn_app_id%3D06m0o000001iFmcAAE%26setupid%3DCustomSettings%26sfdcIFrameHost%3Dweb%26clc%3D1%26sfdcIFrameOrigin%3Dhttps%253A%252F%252Fcoccoc.lightning.force.com%26nonce%3D963492d66bb583b10c6b032d6af3617949042f1a955e8719680f9989a44cea7a%26tour%3D%26id%3Da0q0o00000RwrXS" target="_blank">KPI Custom Setting</a>
+                        </h2>                       
+                      </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">                    
+                    <div class="slds-m-around_medium">  
+                        <!-- <h2 id="element-with-table-label" class="slds-text-heading_medium slds-m-bottom_xx-small">Monitoring KPI Batch Job</h2> -->
+
+                        <lightning-combobox name="batchtype" 
+                            label="Choose Batch Job"
+                            placeholder="Choose batch need to run"
+                            value={value}
+                            onchange={handleOnchangeBatchtype}
+                            options={batchOptions}
+                            required=true></lightning-combobox>
+
+                        <lightning-combobox name ="period"
+                            label="Period"
+                            value={value}
+                            onchange={handleOnchangePeriod}
+                            options={periodOptions}
+                            class={periodClass}
+                            required=true></lightning-combobox>
+
+                        <lightning-combobox name ="quater"
+                            label="Quarter"
+                            value={value}
+                            onchange={handleOnchangeQuarter}
+                            options={quarterOptions}
+                            class={quarterClass}
+                            required=true></lightning-combobox>
+
+                        
+                    </div>
+
+                    <div class="slds-m-around_medium">
+                        <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">{displayMsg}</h2>                        
+
+                        <lightning-button label="Run Batch" title="Run Batch" onclick={handleRunBatchJob}></lightning-button>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_2-of-3">
+                    
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <div class="slds-m-around_medium">
+                        <lightning-datatable key-field="jobId"
+                                            hide-checkbox-column = "true"
+                                            data={batchDatas}
+                                            columns={batchColums}
+                                            onrowaction={handleRowAction}></lightning-datatable>
+                
+                    </div>
+                </div>
+            </div>
+
+            </lightning-tab>
+            <lightning-tab label="KPI Custom Setting" icon-name="custom:custom108" value = "settingtab">
+                <div class="slds-grid slds-wrap">   
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">
+                        <div class="slds-m-around_medium slds-box"> 
+                            <div class="slds-form">
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <label class="slds-form-element__label">Payment method</label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-formatted-text value={kpiSetting.Paymentmethod__c}></lightning-formatted-text>
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <label class="slds-form-element__label">Payment Record Type</label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-formatted-text value={kpiSetting.PaymentRecordType__c}></lightning-formatted-text>
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <label class="slds-form-element__label">Sale Email template</label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-formatted-text value={kpiSetting.SaleEmailtemplate__c}></lightning-formatted-text>
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <label class="slds-form-element__label">Support Email Template</label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-formatted-text value={kpiSetting.SupportEmailTemplate__c}></lightning-formatted-text>
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <label class="slds-form-element__label">Send Email To Sale/Support?</label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-input type="checkbox" variant = "label-hidden" checked={kpiSetting.SendEmailToSale__c} onchange={handleOnchangeSendEmailtoSale}></lightning-input>                                        
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <label class="slds-form-element__label">Send Email To Manager?</label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-input type="checkbox" variant = "label-hidden" checked={kpiSetting.SendEmailToManager__c}  onchange={handleOnchangeSendEmailtoMng}></lightning-input>    
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <lightning-button label="Update Setting" disabled={isDisable} title="Update Setting" onclick={handleUpdateSetting}></lightning-button>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_2-of-3">
+                        
+                    </div>
+                </div>
+            </lightning-tab>
+        </lightning-tabset>
+        </template>
+    </div>
+
+    
+</template>

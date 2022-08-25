@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Airlines</fullName>
+        <default>false</default>
+        <label>Airlines</label>
+    </customValue>
+    <customValue>
+        <fullName>AutoVehicle</fullName>
+        <default>false</default>
+        <label>AutoVehicle</label>
+    </customValue>
+    <customValue>
+        <fullName>Beauty and Hospital</fullName>
+        <default>false</default>
+        <label>Beauty and Hospital</label>
+    </customValue>
+    <customValue>
+        <fullName>Ecommerce</fullName>
+        <default>false</default>
+        <label>Ecommerce</label>
+    </customValue>
+    <customValue>
+        <fullName>EduJobs</fullName>
+        <default>false</default>
+        <label>EduJobs</label>
+    </customValue>
+    <customValue>
+        <fullName>Electronic Mobile</fullName>
+        <default>false</default>
+        <label>Electronic Mobile</label>
+    </customValue>
+    <customValue>
+        <fullName>Finance</fullName>
+        <default>false</default>
+        <label>Finance</label>
+    </customValue>
+    <customValue>
+        <fullName>FMCG-Retails</fullName>
+        <default>false</default>
+        <label>FMCG-Retails</label>
+    </customValue>
+    <customValue>
+        <fullName>Game</fullName>
+        <default>false</default>
+        <label>Game</label>
+    </customValue>
+    <customValue>
+        <fullName>Game-Special</fullName>
+        <default>false</default>
+        <label>Game-Special</label>
+    </customValue>
+    <customValue>
+        <fullName>Pharmacy</fullName>
+        <default>false</default>
+        <label>Pharmacy</label>
+    </customValue>
+    <customValue>
+        <fullName>Real Estate</fullName>
+        <default>false</default>
+        <label>Real Estate</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecom</fullName>
+        <default>false</default>
+        <label>Telecom</label>
+    </customValue>
+    <customValue>
+        <fullName>Travel</fullName>
+        <default>false</default>
+        <label>Travel</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Global Agency</fullName>
+        <default>false</default>
+        <label>Global Agency</label>
+    </customValue>
+    <customValue>
+        <fullName>Global Agency-Xaxis</fullName>
+        <default>false</default>
+        <label>Global Agency-Xaxis</label>
+    </customValue>
+    <customValue>
+        <fullName>Global Agency-Non Xaxis</fullName>
+        <default>false</default>
+        <label>Global Agency-Non Xaxis</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Agency</fullName>
+        <default>false</default>
+        <label>Local Agency</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Agency HN</fullName>
+        <default>false</default>
+        <label>Local Agency HN</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Agency HN-Special Client</fullName>
+        <default>false</default>
+        <label>Local Agency HN-Special Client</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Agency HCM</fullName>
+        <default>false</default>
+        <label>Local Agency HCM</label>
+    </customValue>
+    <customValue>
+        <fullName>Strategic Team</fullName>
+        <default>false</default>
+        <label>Strategic Team</label>
+    </customValue>
+    <customValue>
+        <fullName>Unknown</fullName>
+        <default>false</default>
+        <label>Unknown</label>
+    </customValue>
+    <customValue>
+        <fullName>All</fullName>
+        <default>false</default>
+        <label>All</label>
+    </customValue>
+    <masterLabel>KPI Category</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

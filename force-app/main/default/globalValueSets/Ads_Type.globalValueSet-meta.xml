@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Audience Network</fullName>
+        <default>false</default>
+        <label>Audience Network</label>
+    </customValue>
+    <customValue>
+        <fullName>Magnetic Masthead Media Banner (Bidding)</fullName>
+        <default>false</default>
+        <label>Magnetic Masthead Media Banner (Bidding)</label>
+    </customValue>
+    <customValue>
+        <fullName>Magnetic Masthead Media Banner (fix)</fullName>
+        <default>false</default>
+        <label>Magnetic Masthead Media Banner (fix)</label>
+    </customValue>
+    <customValue>
+        <fullName>Magnetic Masthead Video Banner 15s</fullName>
+        <default>false</default>
+        <label>Magnetic Masthead Video Banner 15s</label>
+    </customValue>
+    <customValue>
+        <fullName>Magnetic Masthead Video Banner 30s</fullName>
+        <default>false</default>
+        <label>Magnetic Masthead Video Banner 30s</label>
+    </customValue>
+    <customValue>
+        <fullName>Magnetic Masthead Video Banner 6s</fullName>
+        <default>false</default>
+        <label>Magnetic Masthead Video Banner 6s</label>
+    </customValue>
+    <customValue>
+        <fullName>Magnetic Masthead Video Banner 6s (Bidding)</fullName>
+        <default>false</default>
+        <label>Magnetic Masthead Video Banner 6s (Bidding)</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Skin (1 day)</fullName>
+        <default>false</default>
+        <label>Mobile Skin (1 day)</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Skin (1 week)</fullName>
+        <default>false</default>
+        <label>Mobile Skin (1 week)</label>
+    </customValue>
+    <customValue>
+        <fullName>Native Mobile</fullName>
+        <default>false</default>
+        <label>Native Mobile</label>
+    </customValue>
+    <customValue>
+        <fullName>Newtab Banner</fullName>
+        <default>false</default>
+        <label>Newtab Banner</label>
+    </customValue>
+    <customValue>
+        <fullName>Newtab Icon</fullName>
+        <default>false</default>
+        <label>Newtab Icon</label>
+    </customValue>
+    <customValue>
+        <fullName>Newtab Skin</fullName>
+        <default>false</default>
+        <label>Newtab Skin</label>
+    </customValue>
+    <customValue>
+        <fullName>Newtab Video Skin 15s</fullName>
+        <default>false</default>
+        <label>Newtab Video Skin 15s</label>
+    </customValue>
+    <customValue>
+        <fullName>Newtab Video Skin 30s</fullName>
+        <default>false</default>
+        <label>Newtab Video Skin 30s</label>
+    </customValue>
+    <customValue>
+        <fullName>RoadBlock - Custom Skin (Weekday) ***</fullName>
+        <default>false</default>
+        <label>RoadBlock - Custom Skin (Weekday) ***</label>
+    </customValue>
+    <customValue>
+        <fullName>Road Block - Custom Skin (Weekend) ****</fullName>
+        <default>false</default>
+        <label>Road Block - Custom Skin (Weekend) ****</label>
+    </customValue>
+    <customValue>
+        <fullName>Search Ad</fullName>
+        <default>false</default>
+        <label>Search Ad</label>
+    </customValue>
+    <customValue>
+        <fullName>Search Banner (240x400)</fullName>
+        <default>false</default>
+        <label>Search Banner (240x400)</label>
+    </customValue>
+    <customValue>
+        <fullName>Search Banner (300x250)</fullName>
+        <default>false</default>
+        <label>Search Banner (300x250)</label>
+    </customValue>
+    <customValue>
+        <fullName>Shopping feed</fullName>
+        <default>false</default>
+        <label>Shopping feed</label>
+    </customValue>
+    <customValue>
+        <fullName>Sidebar icon. Position 1 (Month)</fullName>
+        <default>false</default>
+        <label>Sidebar icon. Position 1 (Month)</label>
+    </customValue>
+    <customValue>
+        <fullName>Sidebar icon. Position 1 (Week)</fullName>
+        <default>false</default>
+        <label>Sidebar icon. Position 1 (Week)</label>
+    </customValue>
+    <customValue>
+        <fullName>Sidebar icon. Position 2 (Month)</fullName>
+        <default>false</default>
+        <label>Sidebar icon. Position 2 (Month)</label>
+    </customValue>
+    <customValue>
+        <fullName>Sidebar icon. Position 2 (Week)</fullName>
+        <default>false</default>
+        <label>Sidebar icon. Position 2 (Week)</label>
+    </customValue>
+    <customValue>
+        <fullName>Sidebar icon. Position 3 (Month)</fullName>
+        <default>false</default>
+        <label>Sidebar icon. Position 3 (Month)</label>
+    </customValue>
+    <customValue>
+        <fullName>Sidebar icon. Position 3 (Week)</fullName>
+        <default>false</default>
+        <label>Sidebar icon. Position 3 (Week)</label>
+    </customValue>
+    <customValue>
+        <fullName>Sidebar icon. Position 4 (Month)</fullName>
+        <default>false</default>
+        <label>Sidebar icon. Position 4 (Month)</label>
+    </customValue>
+    <customValue>
+        <fullName>Sidebar icon. Position 4 (Week)</fullName>
+        <default>false</default>
+        <label>Sidebar icon. Position 4 (Week)</label>
+    </customValue>
+    <customValue>
+        <fullName>Small Native In-feed Banner</fullName>
+        <default>false</default>
+        <label>Small Native In-feed Banner</label>
+    </customValue>
+    <customValue>
+        <fullName>Social Skin</fullName>
+        <default>false</default>
+        <label>Social Skin</label>
+    </customValue>
+    <customValue>
+        <fullName>Social Video Skin 15s</fullName>
+        <default>false</default>
+        <label>Social Video Skin 15s</label>
+    </customValue>
+    <customValue>
+        <fullName>Social Video Skin 30s</fullName>
+        <default>false</default>
+        <label>Social Video Skin 30s</label>
+    </customValue>
+    <customValue>
+        <fullName>Video Banner 15s</fullName>
+        <default>false</default>
+        <label>Video Banner 15s</label>
+    </customValue>
+    <customValue>
+        <fullName>Video Banner 30s</fullName>
+        <default>false</default>
+        <label>Video Banner 30s</label>
+    </customValue>
+    <customValue>
+        <fullName>Video Banner 6s **</fullName>
+        <default>false</default>
+        <label>Video Banner 6s **</label>
+    </customValue>
+    <customValue>
+        <fullName>Weather Skin</fullName>
+        <default>false</default>
+        <label>Weather Skin</label>
+    </customValue>
+    <customValue>
+        <fullName>Weather Video Skin 15s</fullName>
+        <default>false</default>
+        <label>Weather Video Skin 15s</label>
+    </customValue>
+    <customValue>
+        <fullName>Weather Video Skin 30s</fullName>
+        <default>false</default>
+        <label>Weather Video Skin 30s</label>
+    </customValue>
+    <customValue>
+        <fullName>Video banner</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Video banner</label>
+    </customValue>
+    <customValue>
+        <fullName>Search banners</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Search banners</label>
+    </customValue>
+    <customValue>
+        <fullName>Search ads</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Search ads</label>
+    </customValue>
+    <customValue>
+        <fullName>Icons</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Icons</label>
+    </customValue>
+    <customValue>
+        <fullName>DPA</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>DPA</label>
+    </customValue>
+    <customValue>
+        <fullName>Banners newtab</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Banners newtab</label>
+    </customValue>
+    <customValue>
+        <fullName>Game Store</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Game Store</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Search Ads</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Mobile Search Ads</label>
+    </customValue>
+    <customValue>
+        <fullName>RoadBlock</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>RoadBlock</label>
+    </customValue>
+    <customValue>
+        <fullName>Game</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Game</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Newtab Skin</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Mobile Newtab Skin</label>
+    </customValue>
+    <customValue>
+        <fullName>Masthead</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Masthead</label>
+    </customValue>
+    <customValue>
+        <fullName>Native Ads</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Native Ads</label>
+    </customValue>
+    <customValue>
+        <fullName>Skins</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Skins</label>
+    </customValue>
+    <customValue>
+        <fullName>Shoping ads</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Shoping ads</label>
+    </customValue>
+    <description>Ads Type</description>
+    <masterLabel>Ads Type</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

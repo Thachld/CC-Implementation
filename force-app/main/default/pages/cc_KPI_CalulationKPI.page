@@ -1,0 +1,9 @@
+<apex:page standardController="KPI__c" extensions="cc_KPI_CaculateController" action="{!calculateKPI}" >
+    <apex:outputPanel id="refreshPage" rendered="{!refreshPage}">
+        <script>
+           window.top.location='/{!KPI__c.id}';
+        </script>
+    </apex:outputPanel>
+
+    <apex:pageMessages ></apex:pageMessages>
+</apex:page>

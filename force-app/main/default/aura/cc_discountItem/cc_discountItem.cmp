@@ -1,0 +1,257 @@
+<aura:component controller = "cc_discountController">
+    <!-- on component load, fetch picklist values dynamically from apex controller -->   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+        
+    <!--declare aura attributes-->  
+    <aura:attribute name="discountTypeVal" type="sObject[]"/> 
+    <aura:attribute name="discountByVal" type="sObject[]"/> 
+
+    <aura:attribute name="showSaveCancelBtn" type="boolean"/>
+    <aura:attribute name="showErrorClass" type="boolean" default="false"/>
+    <aura:attribute name="sNo" type="Integer" />
+    <aura:attribute name="singleRec" type="Discount__c"/>
+
+
+    <aura:attribute name="editMode" type="boolean" default="false" />    
+
+    <aura:attribute name="ispayment" type="boolean"/>
+    <aura:attribute name="isspending" type="boolean"/>    
+
+    <aura:attribute name="isRate" type="boolean" default="true"/>    
+    <aura:attribute name="isAmount" type="boolean"/>    
+
+    <!-- Register Event -->
+    <aura:registerEvent name = "discountEvent" type = "c:cc_DiscountEvt"/>
+
+    <!--Table Row Start-->  
+    <tr style="height: 40px; font-size: 15px;">
+        <td><div class="slds-truncate">{!v.sNo}</div></td>
+    
+        <td>
+            <span>
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.editMode == false}">
+                    <span class="slds-truncate" title="Name">
+                        {!v.singleRec.Discout_Bonus_By__c}
+                    </span>    
+                
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <lightning:select   aura:id = "discountByAUID"                                      
+                            required = "true"
+                            variant = "label-hidden"
+                            class = "label-hidden"
+                            label = ""                                                    
+                            value = "{!v.singleRec.Discout_Bonus_By__c}"
+                            messageWhenValueMissing="Field is required"
+                            onchange="{!c.handleSelectDiscountBy}">
+                    
+                            <option value = "">--None--</option>
+                            <aura:iteration items = "{!v.discountByVal}" var = "item">
+                                <option text = "{!item.label}" 
+                                    value = "{!item.value}" 
+                                    selected = "{!item.value==v.singleRec.Discout_Bonus_By__c}" 
+                                />
+                            </aura:iteration>
+                        </lightning:select> 
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+        
+        <td>
+            <span>
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.editMode == false}">
+                    <span class="slds-truncate" title="Name">{!v.singleRec.Type__c}</span>
+                    
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <lightning:select   aura:id = "discountTypeAUID"                                      
+                            required = "true"
+                            variant = "label-hidden"
+                            class = "label-hidden"
+                            label = ""                                                    
+                            value = "{!v.singleRec.Type__c}"
+                            messageWhenValueMissing="Field is required"
+                            onchange="{!c.handleSelectDiscountType}">
+                    
+                            <option value = "">--None--</option>
+                            <aura:iteration items = "{!v.discountTypeVal}" var = "item">
+                                <option text = "{!item.label}" 
+                                    value = "{!item.value}" 
+                                    selected = "{!item.value==v.singleRec.Type__c}" 
+                                />
+                            </aura:iteration>
+                        </lightning:select>
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+
+        <aura:if isTrue="{!v.singleRec.Discout_Bonus_By__c == 'Payment'}">
+            <td>
+                <span class="slds-grid slds-grid_align-spread">
+                    <!-- show input and output section based on boolean flag --> 
+                    <aura:if isTrue="{!v.editMode == false}">
+                        <span class="slds-truncate" title="Rating">
+                            <lightning:formattedNumber value="{!v.singleRec.Min_Payment__c}" 
+                                        style="currency" currencyCode="{!v.singleRec.CurrencyIsoCode}" currencyDisplayAs="code"/>
+                            
+                        </span>
+                        
+                        <!-- Inline Edit Section in else case-->  
+                        <aura:set attribute="else">
+                            <lightning:input type = "number" 
+                                            formatter = "currency"
+                                            aura:id = "minPaymentAUID"    
+                                            label=""  
+                                            required="true"                                             
+                                            value = "{!v.singleRec.Min_Payment__c}" 
+                                            variant="label-hidden"                                             
+                                            messageWhenValueMissing="Field is required"
+                                            />        
+                        </aura:set>  
+                    </aura:if> 
+                </span>
+            </td> 
+
+            <td>
+                <span class="slds-grid slds-grid_align-spread">
+                    <!-- show input and output section based on boolean flag --> 
+                    <aura:if isTrue="{!v.editMode == false}">
+                        <span class="slds-truncate" title="Rating">
+                            <lightning:formattedNumber value="{!v.singleRec.Max_payment__c}" 
+                                        style="currency" currencyCode="{!v.singleRec.CurrencyIsoCode}" currencyDisplayAs="code"/>
+                                        
+                        </span>                        
+                        
+                        <!-- Inline Edit Section in else case-->  
+                        <aura:set attribute="else">
+                            <lightning:input type = "number" 
+                                        formatter = "currency"
+                                        aura:id = "maxPaymentAUID"    
+                                        label=""  
+                                        required="true"                                               
+                                        value = "{!v.singleRec.Max_payment__c}" 
+                                        variant="label-hidden" 
+                                        messageWhenValueMissing="Field is required"
+                                        />    
+                        </aura:set>  
+                    </aura:if> 
+                </span>
+            </td>
+        </aura:if>
+
+        <aura:if isTrue="{!v.singleRec.Discout_Bonus_By__c == 'Spending'}">
+            <td>
+                <span class="slds-grid slds-grid_align-spread">
+                    <!-- show input and output section based on boolean flag --> 
+                    <aura:if isTrue="{!v.editMode == false}">
+                        <span class="slds-truncate" title="Rating">
+                            <lightning:formattedNumber value="{!v.singleRec.Min_spending__c}" 
+                                        style="currency" currencyCode="{!v.singleRec.CurrencyIsoCode}" currencyDisplayAs="code"/>
+                        </span>
+                        
+                        <!-- Inline Edit Section in else case-->  
+                        <aura:set attribute="else">
+                            <lightning:input type = "number" 
+                                        formatter = "currency"
+                                        aura:id = "minSpendingAUID"    
+                                        label=""  
+                                        required="true"                                                
+                                        value = "{!v.singleRec.Min_spending__c}" 
+                                        variant="label-hidden"  
+                                        messageWhenValueMissing="Field is required"
+                                        />    
+                        </aura:set>  
+                    </aura:if> 
+                </span>
+            </td>
+
+            <td>
+                <span class="slds-grid slds-grid_align-spread">
+                    <!-- show input and output section based on boolean flag --> 
+                    <aura:if isTrue="{!v.editMode == false}">
+                        <span class="slds-truncate" title="Rating">
+                            <lightning:formattedNumber value="{!v.singleRec.Max_spending__c}" 
+                                        style="currency" currencyCode="{!v.singleRec.CurrencyIsoCode}" currencyDisplayAs="code"/>
+                        </span>                        
+                        
+                        <!-- Inline Edit Section in else case-->  
+                        <aura:set attribute="else">
+                            <lightning:input type = "number" 
+                                    formatter = "currency"
+                                    aura:id = "maxSpendingAUID"    
+                                    label=""  
+                                    required="true"                                                
+                                    value = "{!v.singleRec.Max_spending__c}" 
+                                    variant="label-hidden"  
+                                    messageWhenValueMissing="Field is required"
+                                    />    
+                        </aura:set>  
+                    </aura:if> 
+                </span>
+            </td>
+        </aura:if>
+
+        <td>
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.editMode == false}">
+                    <span class="slds-truncate" title="Rating">
+                        <!-- <lightning:formattedNumber value="{!v.singleRec.Discount_rate__c}" 
+                                        style="percent"/> -->
+                        <lightning:input type = "number"                                    
+                                    formatter = "percent-fixed"                                                                                
+                                    value = "{!v.singleRec.Discount_rate__c}" 
+                                    step="0.001"
+                                    variant="label-hidden" 
+                                    readonly="true"
+                                    
+                                    />    
+                    </span>                        
+                        
+                        <!-- Inline Edit Section in else case-->  
+                        <aura:set attribute="else">
+                            <lightning:input type = "number" 
+                                    aura:id = "discountRateAUID"    
+                                    label=""  
+                                    step="0.001"
+                                    formatter = "percent-fixed"
+                                    required="true"                                              
+                                    value = "{!v.singleRec.Discount_rate__c}" 
+                                    variant="label-hidden" 
+                                    messageWhenValueMissing="Field is required"
+                                    />    
+                        </aura:set>  
+                    </aura:if> 
+                </span>
+        </td>  
+        
+        <td>
+            <span >
+                <button onclick="{!c.handleChangeData}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit">
+                    <aura:if isTrue="{!v.editMode == false}">
+                        <lightning:icon iconName="utility:edit" size="x-small" alternativeText="edit"/>
+                        <aura:set attribute="else">
+                            <lightning:icon iconName="utility:save" size="x-small" alternativeText="save"/>
+                        </aura:set>
+                    </aura:if>
+                </button>
+            </span>
+
+            <span>
+                <button onclick="{!c.handleDelete}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Delete">
+                    <lightning:icon iconName="utility:delete" size="x-small" alternativeText="delete"/>                        
+                </button>
+            </span>
+
+            <span>
+                <button onclick="{!c.handleAddDiscount}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Add">
+                    <lightning:icon iconName="utility:add" size="x-small" alternativeText="add"/>                        
+                </button>
+            </span>
+        </td>
+    </tr>
+</aura:component>

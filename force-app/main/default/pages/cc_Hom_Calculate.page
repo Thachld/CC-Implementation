@@ -1,0 +1,11 @@
+<apex:page standardController="HandOver_Minute__c" extensions="cc_Hom_CalculateController" action="{!calculateHom}" >
+    <apex:outputPanel id="refreshPage" rendered="{!refreshPage}">
+        <script>
+           window.top.location='/{!HandOver_Minute__c.id}';
+          </script>
+    </apex:outputPanel>
+
+<apex:pageMessages ></apex:pageMessages>
+    
+    
+</apex:page>

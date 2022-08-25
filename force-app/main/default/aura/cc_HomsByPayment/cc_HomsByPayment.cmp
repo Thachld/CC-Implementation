@@ -1,0 +1,90 @@
+<aura:component controller = "cc_HOM_Controller" implements = "force:hasrecordId,flexipage:availableForAllPageTypes" >
+
+    <aura:attribute name ="recordId" type ="String"/>
+    <aura:attribute name = "result" type = "sObject[]"/>
+    <aura:attribute name = "baseresult" type = "sObject[]"/>
+    <aura:attribute name = "isdatachanged" type = "boolean" default = "false"/>
+    <aura:attribute name = "limitRec" type="Integer" default="5"/> 
+
+    <aura:handler name = "init" value = "{!this}" action = "{!c.doInit}"/>
+
+    <div class="hom-suggestion">
+        <div class="slds-p-top_medium slds-p-bottom_small">
+            <h1 class="slds-p-left_small title">HOMs Suggestion</h1>
+        </div>
+
+        <aura:if isTrue = "{!v.result.length > 0}">    
+            <table class="slds-table slds-max-medium-table_stacked-horizontal slds-table_fixed-layout" role="grid">
+                <thead>
+                    <tr class="cc-table-header">
+                        <th class="slds-is-resizable" scope="col" style="width:5%" >
+                            <div class="slds-truncate" title="Choose a row to select"></div>
+                        </th>
+
+                        <th class="slds-is-resizable" scope="col" style="width:25%">
+                            <div class="slds-truncate" title="Choose a row to select">HOM Name</div>
+                        </th>
+
+                        <th class="slds-is-resizable" scope="col" style="width:20%">
+                            <div class="slds-truncate" title="Choose a row to select">Contract</div>
+                        </th>
+
+                        <th class="slds-is-resizable" scope="col" style="width:25%;white-space:normal;">
+                            <div  title="Choose a row to select">Account Owner</div>
+                        </th>
+
+                        <th class="slds-is-resizable" scope="col" style="width:25%; white-space:normal;" >
+                            <div title="Choose a row to select">Debit Amount</div>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <aura:iteration items = "{!v.result}" var = "row" indexVar = "index">
+                        <tr class="slds-hint-parent">
+                            <td scope="row" data-label="Selection">   
+                                <ui:inputRadio aura:id="rowSelectionCheckboxId" name="{!index}" label="" change="{!c.onCheckboxChange}" value="{!row.Selected}"/>  
+                            </td>
+
+                            <td role="gridcell" data-label="HOM" style="white-space:normal;">  
+                                <a class="slds-p-right_x-small" href="javascript:void(0);" data-HOMId = "{!row.HOMId}" onclick="{!c.directtoHom}"  title="{!row.HOMName}">{!row.HOMName}</a>
+                            </td>
+
+                            <td role="gridcell" data-label="Contract" style="white-space:normal;">  
+                                <a class="slds-p-right_x-small" href="javascript:void(0);" data-ContractId = "{!row.ContractId}" onclick="{!c.directtoContract}"  title="{!row.Contract}">{!row.Contract}</a>
+                            </td>
+
+                            <td role="gridcell" data-label="Account" style="white-space:normal;">  
+                                <a class="slds-p-right_x-small" href="javascript:void(0);" data-accountId = "{!row.AccountId}" onclick="{!c.directtoAccount}"  title="{!row.AccountOwner}">{!row.AccountOwner}</a>
+                            </td>                        
+
+                            <td role="gridcell" data-label="Paid Amount">  
+                                <p><lightning:formattedNumber value="{!row.DebitAmount}" maximumFractionDigits="0"/></p>                            
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+
+            <aura:if isTrue="{!v.baseresult.length > v.result.length}">        
+                <div class="slds-p-top_medium slds-p-bottom_medium slds-p-left_small">
+                    <a href="javascript:void(0);" class="view-more" onclick="{!c.handleViewMore}">
+                        <span>View more</span>
+                        <span class="small-text"> >></span>
+                    </a>
+                </div>
+            </aura:if>
+
+            <div class="slds-p-top_medium slds-p-bottom_medium slds-p-left_small">
+                <lightning:button disabled="{!not(v.isdatachanged)}" variant="brand" label="Save" title="Save" onclick="{! c.handleSave }"/>
+                <lightning:button disabled="{!not(v.isdatachanged)}" variant="neutral" label="Cancel" title="Cancel" onclick="{! c.handleCancel }"/>
+            </div>
+
+
+            <aura:set attribute = "else">
+                <p class="slds-text-color_error">No result found!</p>
+            </aura:set>
+        </aura:if>
+    </div>
+
+</aura:component>

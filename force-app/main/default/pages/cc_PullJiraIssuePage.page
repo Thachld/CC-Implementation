@@ -1,0 +1,27 @@
+<apex:page standardController="Case" extensions="cc_PullJiraIssueController" showHeader="false" sidebar="false" standardStylesheets="false" applyHTmlTag="false" title="Pull Jira">
+    <html>
+        <body>
+            <apex:slds />
+            <apex:pageBlock >
+                <apex:actionStatus id="pageStatus">
+                    <apex:facet name="start">
+                        <apex:outputPanel >
+                            <img src="/img/loading32.gif" width="25" height="25" />
+                            <apex:outputLabel value="Syncing..."/>
+                        </apex:outputPanel>            
+                    </apex:facet>
+                </apex:actionStatus>   
+                
+                <span>
+                    <apex:form id="form" styleClass="slds-scope">
+                        <apex:commandButton styleClass="slds-button slds-button_brand" action="{!pullInformation}" rerender="rerenderId" status="pageStatus" value="Pull Jira Changes"/>
+                    </apex:form>
+                </span> 
+                
+            </apex:pageBlock>
+            
+            
+            <apex:pageMessages ></apex:pageMessages>               
+        </body>
+    </html>
+</apex:page>

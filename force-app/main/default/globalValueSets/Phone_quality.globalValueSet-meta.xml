@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Ok</fullName>
+        <default>true</default>
+        <label>Ok</label>
+    </customValue>
+    <customValue>
+        <fullName>Call center</fullName>
+        <default>false</default>
+        <label>Call center</label>
+    </customValue>
+    <customValue>
+        <fullName>Wrong number</fullName>
+        <default>false</default>
+        <label>Wrong number</label>
+    </customValue>
+    <customValue>
+        <fullName>Do not pick up</fullName>
+        <default>false</default>
+        <label>Do not pick up</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Phone quality</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

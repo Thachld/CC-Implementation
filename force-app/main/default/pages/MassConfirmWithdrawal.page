@@ -1,0 +1,8 @@
+<apex:page standardController="Mass_Withdrawal_Request__c" extensions="MassCreateWithdrawal_Controller" action="{!massConfirm}">
+    <apex:outputPanel id="refreshPage" rendered="{!refreshPage}">
+        <script>
+           window.top.location='/{!request.id}';
+        </script>
+    </apex:outputPanel>
+    <apex:pageMessages ></apex:pageMessages>
+</apex:page>

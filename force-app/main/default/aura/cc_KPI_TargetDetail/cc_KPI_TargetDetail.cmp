@@ -1,0 +1,118 @@
+<aura:component controller = "cc_KPI_TargetController">    
+    <aura:attribute name = "detail" type = "KPI_Target_Detail__c" default="{ 'sobjectType': 'KPI_Target_Detail__c', 'Name': ''}"/>
+    <aura:attribute name = "type" type= "String"/>
+
+    <aura:attribute name = "recordId" type="String"/>  
+
+    <aura:attribute name = "sNo" type="Integer" />   
+    <aura:attribute name = "industryPick" type = "List"/>    
+    <aura:attribute name = "agencyPick" type = "List"/>
+    <aura:attribute name = "editSpending" type="boolean" default="false" />
+    <aura:attribute name = "editPayment" type="boolean" default="false" />
+    <aura:attribute name = "editMode" type="boolean" default="false" />
+
+    <!-- Register Event -->
+    <aura:registerEvent name = "KPITargetEvent" type = "c:cc_KPITargetEvt"/>
+
+    <aura:handler name = "init"	value="{!this}"	action="{!c.doInit}" />    
+    
+    <tr class="slds-hint-parent">    
+        <td><div class="slds-truncate">{!v.sNo}</div></td>
+		<!--
+        <td scope="row" data-label="Sale" style="white-space:normal;">
+            <div class="" title="Sale">                
+                <span class="slds-truncate" title="Industry/Agency">
+                        {!v.detail.Sale__r.Name}
+                </span>  
+            </div>
+        </td>
+		-->
+
+        <td scope="row" data-label="Trac">
+            <div class="" title="Trac">
+                <!-- <aura:if isTrue="{!v.editMode == false}"> -->
+                    <span class="slds-truncate" title="Trac Name">
+                        {!v.detail.Sale__r.Trac_Name__c}
+                    </span> 
+            </div>
+        </td>
+        <td role="gridcell" data-label="KPI Category">
+            
+            <div class="" title="KPI Category">                
+                <span class="slds-truncate" title="KPI Category">
+                    {!v.detail.KPI_Category__c}
+                </span>    
+            </div>
+        </td>        
+
+        <td role="gridcell" data-label="Month">
+            <div class="" title="Month">  
+                <p><lightning:formattedText value="{!v.detail.Month__c}" /></p>                                            
+            </div>
+        </td>
+
+        <td role="gridcell" data-label="Spending KPI">
+            <div class="" title="Spending KPI">   
+                <aura:if isTrue="{!v.editSpending == false}">
+                    <span class="slds-truncate" title="Spending KPI">
+                        <lightning:formattedNumber value="{!v.detail.SpendingKPI__c}" 
+                            style="currency" currencyCode="{!v.detail.CurrencyIsoCode}" currencyDisplayAs="code"/>
+                    </span>    
+                
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">      
+                        <lightning:input type = "number" 
+                                    aura:id = "detailfield"
+                                    required = "true"                            
+                                    label=""                                                
+                                    value = "{!v.detail.SpendingKPI__c}" 
+                                    variant="label-hidden"                            
+                                    class="label-hidden"/>       
+                    </aura:set>
+                </aura:if>                                                     
+            </div>
+        </td>
+
+        <td role="gridcell" data-label="Payment KPI">
+            <div class="" title="Payment KPI">  
+                <aura:if isTrue="{!v.editPayment == false}">
+                    <span class="slds-truncate" title="Payment KPI">
+                        <lightning:formattedNumber value="{!v.detail.PaymentKPI__c}" 
+                                        style="currency" currencyCode="{!v.detail.CurrencyIsoCode}" currencyDisplayAs="code"/>
+                    </span>    
+                
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">  
+                        <lightning:input type = "number" 
+                                    aura:id = "detailfield"
+                                    required = "true"                            
+                                    label=""                                                
+                                    value = "{!v.detail.PaymentKPI__c}" 
+                                    variant="label-hidden"                            
+                                    class="label-hidden"            
+                        />        
+                    </aura:set>
+                </aura:if>                                      
+            </div>
+        </td>
+
+        <td role="gridcell" data-label = "Action">
+            <span >
+                <button onclick="{!c.handleChangeData}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit" disabled = "{!v.detail.disabled}">
+                    <aura:if isTrue="{!v.editMode == false}">
+                        <lightning:icon iconName="utility:edit" size="x-small" alternativeText="edit"/>
+                        <aura:set attribute="else">
+                            <lightning:icon iconName="utility:save" size="x-small" alternativeText="save"/>
+                        </aura:set>
+                    </aura:if>
+                </button>
+            </span>
+
+            <!-- <span>
+                <button onclick="{!c.handleDelete}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Delete" disabled = "{!v.detail.disabled}">
+                    <lightning:icon iconName="utility:delete" size="x-small" alternativeText="delete"/>                        
+                </button>
+            </span> -->
+        </td>
+    </tr>  
+</aura:component>

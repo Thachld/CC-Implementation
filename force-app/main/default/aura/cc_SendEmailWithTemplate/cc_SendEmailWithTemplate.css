@@ -1,0 +1,16 @@
+.THIS .file-grid{
+    background-color: rgb(251 251 251);
+}
+.THIS .file-col{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+
+.THIS .slds-form-element__label{
+    font-weight: bold;
+}
+
+.THIS .mail-subject{
+    font-weight: bold;
+}

@@ -1,0 +1,88 @@
+<aura:component controller = "cc_KPI_TargetController" implements="force:hasrecordId,flexipage:availableForAllPageTypes">
+
+    <aura:attribute name = "recordId" type="String"/>  
+    <aura:attribute name = "kpidetails" type = "KPI_Target_Detail__c[]"/>
+    <aura:attribute name = "newRecord" type = "KPI_Target_Detail__c" default="{ 'sobjectType': 'KPI_Target_Detail__c', 'Name': ''}"/>
+    <aura:attribute name = "kpitarget" type = "KPI_Target__c"/>
+    <aura:attribute name = "isdatachanged" type = "Boolean" default = "false"/>
+
+
+    <aura:handler name = "KPITargetEvent" event="c:cc_KPITargetEvt" action="{!c.handlerKPITargetAction}"/>
+    <aura:handler name = "init"	value="{!this}"	action="{!c.doInit}" />    
+
+    <div class="slds-grid slds-wrap">  
+        <div class="slds-size--1-of-1 slds-large-size--1-of-1 slds-p-around_medium">
+            <p class="slds-card__header-title">KPI Target Details</p>
+        </div>
+
+        <div class="slds-size--1-of-1 slds-large-size--1-of-1 slds-m-top_medium slds-p-left_medium slds-p-right_medium">
+            <table class="slds-table slds-max-medium-table_stacked-horizontal slds-table_fixed-layout slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>   
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="No" style="width: 5%;">
+                            <a href="javascript:void(0);">                   
+                                <span class="slds-truncate" title="Sales">No</span>                           
+                            </a>                             
+                        </th>
+                        
+                        <!--
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Sales" style="width: 15%; white-space:normal;">
+                            <a href="javascript:void(0);">                   
+                                <span class="slds-truncate" title="Sales">Sale</span>                                  
+                            </a>                
+                        </th>
+						-->
+
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Trac" style="width: 10%;">
+                            <a href="javascript:void(0);">                   
+                                <span class="slds-truncate" title="Trac">Trac Name</span>                                  
+                            </a>                
+                        </th>
+                        
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Industry" style="width: 20%;">
+                            <a href="javascript:void(0);">                    
+                                <span class="slds-truncate" title="Industry">KPI Category</span>                                                                           
+                            </a>               
+                        </th>                        
+                        
+
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Month" style="width: 10%;">
+                            <a href="javascript:void(0);">                    
+                                <span class="slds-truncate" title="Status">Month</span>                                            
+                            </a>                
+                        </th>
+
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Spending KPI" style="width: 15%;">
+                            <a href="javascript:void(0);">                    
+                                <span class="slds-truncate" title="Status">Spending KPI</span>                                            
+                            </a>                
+                        </th>                         
+
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Cash KPI" style="width: 15%;">
+                            <a href="javascript:void(0);">                    
+                                <span class="slds-truncate" title="Status">Cash KPI</span>                                            
+                            </a>                
+                        </th>
+
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="action" style="width: 10%;">
+                            <a href="javascript:void(0);">                    
+                                <span class="slds-truncate" title="action">Action</span>                                            
+                            </a>                
+                        </th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.kpidetails}" var = "record" indexVar="sNo" >
+                        <c:cc_KPI_TargetDetail detail = "{!record}" type = "{!v.kpitarget.Type__c}" sNo ="{!sNo + 1}"/>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="slds-size--1-of-1 slds-large-size--1-of-1 slds-p-around_medium">
+            <lightning:button disabled="{!not(v.isdatachanged)}" variant="brand" label="Save" title="Save" onclick="{! c.handleSave }"/>
+            <lightning:button disabled="{!not(v.isdatachanged)}" variant="neutral" label="Cancel" title="Cancel" onclick="{! c.handleCancel }"/>
+        </div>
+    </div>   
+</aura:component>

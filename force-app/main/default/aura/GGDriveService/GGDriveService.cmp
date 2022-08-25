@@ -1,0 +1,64 @@
+<aura:component controller="GGDriveServiceController" 
+                implements="lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global">
+    <ltng:require scripts="{!$Resource.ggAPIUpload}" afterScriptsLoaded="{!c.onApiLoad}" />
+    
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="sObjectType" type="String" default="{!v.sObjectName}"/>
+    <aura:attribute name="addFileResult" type="String"/>
+    <aura:attribute name="picker" type="string" />
+    
+    <!--<p>Type:{!v.sObjectType}</p>
+    <p>ID:{!v.recordId}</p>-->
+    <article class="slds-card"  >
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-standard-account" title="Upload Files">
+                        <lightning:icon iconName="action:add_file" alternativeText="Upload Files" size="x-small" />
+                        <span class="slds-assistive-text">Upload Files</span>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Upload Files">
+                            <span>Upload Files</span>
+                        </a>
+                    </h2>
+                </div>
+                <!--<div class="slds-no-flex">
+                    <button class="slds-button slds-button_neutral">New</button>
+                </div>-->
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body_inner"  >
+            <div class="slds-text-align--center slds-m-top--x-large">
+                <div class="open-gdrive" onclick="{!c.uploadFiles}" >
+                    <lightning:icon iconName="action:add_file" alternativeText="Add File" />
+                </div>
+                <a onclick="{!c.uploadFiles}">
+                    <div class="slds-text-heading_large">Choose File</div>
+                </a>
+
+                <br/>
+                <!--<aura:if isTrue="{!and(v.addFileResult != null, v.addFileResult != '')}">
+                    <p>Result:{!v.addFileResult}</p>
+                </aura:if>-->
+                
+                <a aura:id="result" id="resultUrl" target="_blank" onclick="{!c.saveDocument}" style="display: none"></a>
+                <div id="fileName" style="display: none"></div>
+                <div id="recordIdCurrent" style="display: none"></div>
+                <div id="sObjectTypeCurrent" style="display: none"></div>
+                <div id="prefixURL" style="display: none"></div>
+                <!--<input aura:id="resultInput" type="text" id="resultInput" onchange="{!c.saveDocument}"></input>
+            <lightning:input type="url" id="resultInputUrl" name="input1" label="Url" onchange="{!c.saveDocument}"	/>-->
+                
+            </div>
+        </div>
+        <!--<footer class="slds-card__footer">
+            <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                <span class="slds-assistive-text">Accounts</span>
+            </a>
+        </footer>-->
+    </article>
+</aura:component>

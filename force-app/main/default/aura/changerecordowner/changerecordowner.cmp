@@ -1,0 +1,19 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    
+   
+   <aura:handler aura:name="init" value="{!this}" action="{!c.init}" /> 
+   <lightning:flow aura:id="flowAccount" />
+    
+   
+   <lightning:flow aura:id="flowQCAccount" />
+    <lightning:flow aura:id="flowQCAccountSupport" />
+ 	<lightning:flow aura:id="flowContact" />
+    <lightning:flow aura:id="flowCase" />
+    <lightning:flow aura:id="flowTask" />
+      <lightning:flow aura:id="flowOpportunity" />
+    <lightning:flow aura:id="flowAccountTeammember" />
+    <lightning:flow aura:id="flowCampaign" />
+     <lightning:flow aura:id="flowMediaPlan" />
+    
+    
+</aura:component>

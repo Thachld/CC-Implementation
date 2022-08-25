@@ -1,0 +1,3 @@
+<aura:component implements ="force:lightningQuickActionWithoutHeader,force:hasRecordId">    
+    <c:confirmwithdrawaltransaction onclose="{!c.closeQA}" recordId="{!v.recordId}"/>
+</aura:component>

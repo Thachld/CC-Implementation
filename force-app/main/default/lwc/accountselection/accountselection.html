@@ -1,0 +1,126 @@
+<template>
+    <div class="scrollContainer" onscroll={handleScroll}>
+        <div class="scrollArea" >
+            <table class="slds-table slds-max-medium-table_stacked-horizontal slds-table_fixed-layout">
+                <thead>
+                    <tr>
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Select All" style="width: 8%;">
+                            <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset vna-col-title">                   
+                                <lightning-input data-checkbox="checkall" type="checkbox" checked={checkall} value={checkall} onchange={handleSelectAll} ></lightning-input>                         
+                            </a>                
+                        </th>
+
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="QC Account" style="width: 30%;">
+                            <a href="javascript:void(0);" onclick={handleSortbyQCAccount}>                   
+                                <span class="slds-truncate" title={qcAccounTitle}>
+                                    {qcAccounTitle}
+                                </span>
+                                <template if:true={sortbyQCAccount}>
+                                    <span class="slds-p-around_xx-small slds-button slds-button_icon slds-cell-edit__button" tabindex="0" title={sortDirection}>
+                                        <lightning-icon  icon-name={iconSoft} 
+                                                        size="xx-small" alternative-text={sortDirection}></lightning-icon>
+                                    </span>                                       
+                                </template>
+                            </a>                
+                        </th>
+
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="ID" style="width: 10%;">
+                            <a href="javascript:void(0);" onclick={handleSortbyId}>                    
+                                <span class="slds-truncate" title={idTitle}>
+                                    {idTitle}
+                                </span>
+                                <template if:true={sortbyId}>
+                                    <span class="slds-p-around_xx-small slds-button slds-button_icon slds-cell-edit__button" tabindex="0" title={sortDirection}>
+                                        <lightning-icon  icon-name={iconSoft} 
+                                                        size="xx-small" alternative-text={sortDirection}></lightning-icon>
+                                    </span>
+                                </template>
+                                <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                            </a>               
+                        </th>
+
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Industry" style="width: 12%;" >
+                            <a href="javascript:void(0);" onclick={handleSortbyIndustry}>            
+                                <span class="slds-truncate" title={industryTitle}>
+                                    {industryTitle}
+                                </span>
+                                <template if:true={sortbyIndustry}>
+                                    <span class="slds-p-around_xx-small slds-button slds-button_icon slds-cell-edit__button" tabindex="0" title={sortDirection}>
+                                        <lightning-icon  icon-name={iconSoft} 
+                                                        size="xx-small" alternative-text={sortDirection}></lightning-icon>
+                                    </span>
+                                </template>                            
+                            </a>               
+                        </th>
+
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Sale" style="width: 20%;">
+                            <a href="javascript:void(0);" onclick={handleSortbySale}>                     
+                                <span class="slds-truncate" title={saleTitle}>
+                                    {saleTitle}
+                                </span>
+                                <template if:true={sortbySale}>
+                                    <span class="slds-p-around_xx-small slds-button slds-button_icon slds-cell-edit__button" tabindex="0" title={sortDirection}>
+                                        <lightning-icon  icon-name={iconSoft} 
+                                                        size="xx-small" alternative-text={sortDirection}></lightning-icon>
+                                    </span>
+                                </template>
+                            </a>               
+                        </th>
+
+                        <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Ads Op" style="width: 20%;">
+                            <a href="javascript:void(0);" onclick={handleSortbyAdsOp}>                        
+                                <span class="slds-truncate" title={adsOpTitle}>
+                                    {adsOpTitle}
+                                </span>
+                                <template if:true={sortbyAdsOp}>
+                                    <span class="slds-p-around_xx-small slds-button slds-button_icon slds-cell-edit__button" tabindex="0" title={sortDirection}>
+                                        <lightning-icon  icon-name={iconSoft} 
+                                                        size="xx-small" alternative-text={sortDirection}></lightning-icon>
+                                    </span>
+                                </template>
+                            </a>                
+                        </th>    
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <template for:each={result} for:item="item">
+                        <tr class="slds-hint-parent" key={item.Id}>  
+
+                            <th scope="row" data-label="Selection">
+                                <div class="slds-truncate" title="Selection">
+                                    <lightning-input data-qcid={item.Id} 
+                                                    data-name={item.Name} 
+                                                    data-checkbox-button="checkbox-button"
+                                                    type="checkbox-button" 
+                                                    label="Basic option" 
+                                                    variant="label-hidden"  
+                                                    onchange={handleSelected}></lightning-input>
+                                </div>
+                            </th>
+
+                            <td scope="gridcell" data-label={qcAccounTitle} style="white-space:normal;">                       
+                                <a href="javascript:void(0);" data-qcid={item.Id} onclick={handleOpenQCAccount}>
+                                    <lightning-formatted-text value={item.Name}></lightning-formatted-text>                            
+                                </a>                    
+                            </td>
+
+                            <td role="gridcell" data-label={idTitle} style="white-space:normal;">
+                                <lightning-formatted-text value={item.QC_Account_Id__c}></lightning-formatted-text>
+                            </td>
+                            <td scope="gridcell" data-label={industryTitle} style="white-space:normal;">
+                                <lightning-formatted-text value={item.Industry__c}></lightning-formatted-text>
+                            </td>
+                            <td role="gridcell" data-label={saleTitle}  style="white-space:normal;">
+                                <lightning-formatted-email value={item.Sale_Email__c}></lightning-formatted-email>
+                            </td>
+                            <td role="gridcell" data-label={adsOpTitle}  style="white-space:normal;">
+                                <lightning-formatted-email value={item.Support_Email__c}></lightning-formatted-email>
+                            </td>
+                        </tr>                
+                    </template> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

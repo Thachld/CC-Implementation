@@ -1,0 +1,53 @@
+.reCaptchaSmall{
+    height: 60px;
+}
+.reCaptchaBig{
+    height: 500px;
+}
+
+.delete-icon svg{
+    fill: red !important;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.slds-form-element{
+    margin-top: 10px;
+}
+
+.attachfile{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+lightning-button.button {
+	--sds-c-button-neutral-color-background: #4FBA69;
+    --sds-c-button-neutral-color-background-hover:#14842F;
+    --sds-c-button-neutral-color-border-hover:#14842F;
+    --sds-c-button-neutral-color-border: #4FBA69;
+    --sds-c-button-text-color:#FFFFFF;
+    --sds-c-button-text-color-hover:#FFFFFF;
+    --sds-c-button-neutral-spacing-inline-start:20px;
+    --sds-c-button-neutral-spacing-inline-end:20px;
+    --sds-c-button-spacing-block-start:5px;
+    --sds-c-button-spacing-block-end:5px;
+    --lwc-spacingMedium::20px;
+    text-transform: capitalize;
+}
+
+.contact-form-title{
+    font-size: 1.25rem;
+    font-weight: normal;
+    text-align: center;
+}
+
+.msg-title{
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+}
+
+.msg-content{
+    font-size: 1rem;
+    font-weight: normal;
+}

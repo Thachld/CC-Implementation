@@ -1,0 +1,15 @@
+<aura:component controller = "CreateCouponController" implements ="force:lightningQuickAction,force:hasRecordId">    
+    <aura:attribute name = "campaign" type="Campaign" />
+    <aura:attribute name = "recordId" type="String" />
+
+    <aura:html tag="style">
+        .slds-modal__footer{
+            display:none !important;
+        } 
+    </aura:html>
+
+    <aura:handler name = "init" value="{!this}" action="{!c.doInit}"/>
+    <aura:if isTrue="{!v.campaign}">
+        <c:createcoupon onclose="{!c.closeQA}" recordId="{!v.recordId}" campaigndata= "{!v.campaign}"/>
+    </aura:if>    
+</aura:component>

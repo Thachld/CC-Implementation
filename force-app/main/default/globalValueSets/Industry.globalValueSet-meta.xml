@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Airlines</fullName>
+        <default>false</default>
+        <label>Airlines</label>
+    </customValue>
+    <customValue>
+        <fullName>AutoVehicle</fullName>
+        <default>false</default>
+        <label>AutoVehicle</label>
+    </customValue>
+    <customValue>
+        <fullName>Beauty and Hospital</fullName>
+        <default>false</default>
+        <label>Beauty and Hospital</label>
+    </customValue>
+    <customValue>
+        <fullName>Ecommerce</fullName>
+        <default>false</default>
+        <label>Ecommerce</label>
+    </customValue>
+    <customValue>
+        <fullName>EduJobs</fullName>
+        <default>false</default>
+        <label>EduJobs</label>
+    </customValue>
+    <customValue>
+        <fullName>Electronic Mobile</fullName>
+        <default>false</default>
+        <label>Electronic Mobile</label>
+    </customValue>
+    <customValue>
+        <fullName>Finance</fullName>
+        <default>false</default>
+        <label>Finance</label>
+    </customValue>
+    <customValue>
+        <fullName>FMCG</fullName>
+        <default>false</default>
+        <label>FMCG</label>
+    </customValue>
+    <customValue>
+        <fullName>Game</fullName>
+        <default>false</default>
+        <label>Game</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Pharmacy</fullName>
+        <default>false</default>
+        <label>Pharmacy</label>
+    </customValue>
+    <customValue>
+        <fullName>Real Estate</fullName>
+        <default>false</default>
+        <label>Real Estate</label>
+    </customValue>
+    <customValue>
+        <fullName>Retails</fullName>
+        <default>false</default>
+        <label>Retails</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecom</fullName>
+        <default>false</default>
+        <label>Telecom</label>
+    </customValue>
+    <customValue>
+        <fullName>Travel</fullName>
+        <default>false</default>
+        <label>Travel</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecom - AutoVehicle</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Telecom - AutoVehicle</label>
+    </customValue>
+    <masterLabel>Industry</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

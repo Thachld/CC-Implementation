@@ -1,0 +1,59 @@
+<aura:component controller = "cc_CampaignConfirmController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name = "campaign" type = "String"/>
+    <aura:attribute name = "memberid" type = "String"/>
+    <aura:attribute name = "confirm" type = "Campaign_Confim__c" default="{ 'sobjectType': 'Campaign_Confim__c', 'Name': '', 'IsNotJoin__c': false}"/>
+    <aura:attribute name = "showRequired" type = "Boolean" default="false"/>
+    <aura:attribute name = "showexpired" type = "Boolean" default="false"/>
+    
+
+    <aura:handler name = "init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="slds-grid slds-wrap">
+
+        <!--Back to My Cases-->
+        <div class="slds-size--1-of-1 slds-large-size--1-of-1 slds-p-top_medium slds-p-left_medium slds-p-right_medium">
+            <h1 style="font-family: Arial !important; font-size:26px; font-weight: bold;">Chương trình chạy thử chiến dịch quảng cáo trên AdNetwork là hoàn toàn miễn phí, Quý khách hàng không đồng ý chạy thử chiến dịch vui lòng xác nhận</h1>
+        </div> 
+
+        <div class="slds-size--1-of-1 slds-large-size--1-of-1 slds-p-left_medium slds-p-right_medium">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size--1-of-1 slds-large-size--1-of-1 slds-p-top_large">
+                    <label style="font-family: Arial !important;" class="slds-text-heading_small">Không tham gia<abbr class="slds-required">*</abbr></label>
+                    <lightning:input type="checkbox" label="" variant = "label-hidden" aura:id="isJoinAUID" checked="{!v.confirm.IsNotJoin__c }" onchange="{!c.handleChangeOption}"  />
+  
+                    <aura:if isTrue="{!v.showRequired}">
+                        <p class="slds-m-top_x-small"><abbr class="slds-required">Vui lòng lựa chọn trước khi xác nhận</abbr></p>
+                    </aura:if>    
+                </div>
+
+                <div class="slds-size--1-of-1 slds-large-size--1-of-1 slds-p-top_large">
+                    <label style="font-family: Arial !important;" class="slds-text-heading_small">Ý kiến của khách hàng</label>
+                    <lightning:textarea aura:id = "addressfield"   
+                                        label = ""                                             
+                                        class = "label-hidden"                                                
+                                        value = "{!v.confirm.Comment__c}"                                               
+                                        variant = "label-hidden"/>  
+                </div>                
+            </div>
+        </div> 
+
+        <div class="slds-size--1-of-1 slds-large-size--1-of-1 slds-p-left_medium slds-p-right_medium slds-p-top_medium">
+            <label class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="">
+                <lightning:icon iconName="utility:info" size="x-small" alternativeText="" class = "icon-info"/>
+            </label>
+            <span>
+                <label style="font-family: Arial !important;">Trong trường hợp Quý Khách hàng thay đổi quyết định có thể trực tiếp nhân viên chăm sóc khách hàng tại: Hotline: (024) 38 838 838
+                            Hoặc thông qua chuyên viên kinh doanh và nhân viên đang vận hành các chiến dịch.</label>                     
+            </span>
+        </div>
+
+        <div class="slds-size--1-of-1 slds-large-size--1-of-1 slds-p-left_medium slds-p-right_medium slds-p-top_large">
+            <lightning:button variant="success" label="Xác nhận" title="Xác nhận" onclick="{! c.handleSubmit }"/>
+
+            <aura:if isTrue="{!v.showexpired}">
+                <p class="slds-m-top_small"><abbr class="slds-required">Thời hạn xác nhận đã hết. Nếu khách hàng muốn từ chối không tham gia chạy thử chiến dịch vui lòng liên hệ nhân viên CSKH</abbr></p>
+            </aura:if>    
+        </div>
+    </div>
+
+</aura:component>

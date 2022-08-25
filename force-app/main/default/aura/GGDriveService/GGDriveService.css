@@ -1,0 +1,23 @@
+.THIS .slds-scope .slds-icon--xx-large {
+    height : 10rem;
+    width : 10rem;
+}
+
+.THIS .open-gdrive {
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.THIS .open-gdrive:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.THIS .noSidebarCell, 
+.THIS .sidebarCell .fixed {
+    padding: 0;
+}
+
+.THIS a[name='skiplink'] {
+    display: none;
+}

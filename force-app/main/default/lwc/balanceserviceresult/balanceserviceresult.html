@@ -1,0 +1,47 @@
+<template>
+    <lightning-accordion allow-multiple-sections-open 
+                        active-section-name={activesections}
+                        class="custom-accordion">
+                         
+        <template for:each={balancedatas} for:item="data">
+            <lightning-accordion-section name={data.qcId} data-id={data.qcId} label={data.userEmail} key={data.qcId}>
+                <template if:true={isShowSummary}>
+                    <div class="slds-m-left_medium slds-m-right_medium">                        
+                        <c-balancesummary summary={data.summary}></c-balancesummary>                
+                    </div>
+                </template>
+                <div class="slds-m-left_medium slds-m-right_medium">                    
+                    <lightning-datatable    key-field="Id"                                         
+                                            data={data.detail}
+                                            columns={balanceColums}
+                                            onsort={handleSortdata} 
+                                            sorted-direction={sortDirection}
+                                            onrowselection={getSelectedRows}                                            
+                                            class="slds-scrollable--y slds-max-medium-table_stacked"
+                                            max-row-selection={maxrowselection}
+                                            onrowaction={handleRowAction}></lightning-datatable>
+                </div>
+                
+                
+                <div class="slds-text-align_left slds-m-around_medium">
+                    <template if:true={isShowWithDraw}>
+                        <lightning-button label="Request to Withdrawal" 
+                            title="Withdraw slected transactions" 
+                            variant="brand-outline"                             
+                            icon-name="utility:money"
+                            onclick={handleWithrawTransaction}></lightning-button>
+                    </template>                   
+                </div> 
+            </lightning-accordion-section> 
+        </template>
+    </lightning-accordion>
+    <template if:true={isModalOpen}>
+        <template if:true={isSingleTransaction}>
+            <c-createwithdrawaltransaction onclosewithdrawmodel={handleCloseModal} withdraw={withdrawaldata}></c-createwithdrawaltransaction>
+        </template>
+        
+        <template if:true={isMultipleTransaction}>        
+            <c-createwithdrawaltransactionmultiple onclosewithdrawmodel={handleCloseModal} withdraws={withdrawaldatas}></c-createwithdrawaltransactionmultiple>
+        </template>
+    </template>
+</template>

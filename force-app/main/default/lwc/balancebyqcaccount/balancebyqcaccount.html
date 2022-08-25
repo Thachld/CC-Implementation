@@ -1,0 +1,29 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="custom:custom16" size="small"></lightning-icon>
+            <span>&nbsp;Get Balance</span> 
+        </h3>        
+        <div class="slds-grid slds-wrap">   
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">                    
+                <div class="slds-m-around_medium">   
+                    <lightning-input type="datetime" required="true" label="Enter a date/time value" value={defaultDattime} onchange={handleOnchangeDate}></lightning-input>
+                </div>
+
+                <div class="slds-m-around_medium"> 
+                    <lightning-button title="Get Balance" variant="brand-outline" label="Get Balance" icon-name="utility:search" onclick={handleGetBalanceService}></lightning-button>
+                </div>
+            </div>           
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                <template if:true={isSpinner}>
+                    <c-coccocspinner spinnerclass = 'medium-spinner'></c-coccocspinner>
+                </template>
+                
+                <template if:false={isSpinner}>                    
+                    <c-balanceserviceresult balancedatas={balanceDatas} showwithdraw={showWithdraw} showsummary={showSummary}></c-balanceserviceresult>  
+                </template>
+            </div>
+        </div> 
+    </lightning-card>       
+   
+</template>

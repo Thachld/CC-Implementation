@@ -1,0 +1,48 @@
+<template>   
+    
+    <template if:true={isShowBlankFromTrans}>
+        <div class={marginAroundSmall}>
+            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error slds-m-top_medium">
+                <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small">
+                    <lightning-icon icon-name="utility:error" alternative-text="Error" title="Error" variant="inverse"></lightning-icon>
+                </span>
+
+                <h2>{blankFromTransMsg}</h2>
+            </div>
+        </div>
+    </template>   
+    
+    <div class={marginAroundSmall}>
+        <lightning-datatable key-field="Id"                                            
+                                data={balancedatas}
+                                columns={balanceColums}
+                                onsort={handleSortdata} 
+                                sorted-by={sortBy}
+                                sorted-direction={sortDirection}
+                                onrowselection={getSelectedRows}                                            
+                                class="slds-scrollable--y"
+                                max-row-selection={maxrowselection}
+                                onrowaction={handleRowAction}></lightning-datatable>
+    </div> 
+    
+    
+    <div class={marginAroundSmall} slot="footer">
+        <div class="slds-text-align_left">
+            <template if:true={isShowWithDraw}>
+                <lightning-button  label="Request to Withdraw" 
+                    title="Withdraw slected transactions" 
+                    variant="brand-outline"                             
+                    icon-name="utility:money"
+                    onclick={handleWithrawTransaction}></lightning-button>
+            </template>   
+        </div>                
+    </div>
+
+    <template if:true={isSingleModalOpen}>
+        <c-createwithdrawaltransaction onclosewithdrawmodel={handleCloseModal} withdraw={withdrawaldata}></c-createwithdrawaltransaction>
+    </template>
+
+    <template if:true={isMultipleModalOpen}>
+        <c-createwithdrawaltransactionmultiple onclosewithdrawmodel={handleCloseModal} withdraws={withdrawaldatas}></c-createwithdrawaltransactionmultiple>
+    </template>            
+</template>

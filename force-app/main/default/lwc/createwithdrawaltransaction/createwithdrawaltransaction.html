@@ -1,0 +1,125 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                        size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>                        
+                </button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Request Withdrawal</h2>
+            </header>
+
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <div class="slds-m-around_medium">
+                    <template if:true={isSpinner}>
+                        <c-coccocspinner spinnerclass = 'medium-spinner'></c-coccocspinner>                    
+                    </template>    
+                    <template if:false={isSpinner}>
+                    <lightning-record-edit-form 
+                                    object-api-name="Payment__c" 
+                                    record-id={recordId}
+                                    record-type-id="0120o000001jwryAAA" 
+                                    onsubmit={handleSubmit}
+                                    onsuccess={handleSuccess}
+                                    onerror={handleError}>       
+                            
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <lightning-input-field field-name="QC_Account__c" disabled></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <lightning-input-field field-name="Withdrawal_From_TransId__c"  disabled></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <lightning-input-field field-name="Type__c" disabled></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <lightning-input-field field-name="Withdrawal_from_QC__c" required></lightning-input-field>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <lightning-input-field field-name="Name" required></lightning-input-field>    
+                            </div>                           
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <lightning-input-field field-name="Refund_Type__c" required  onchange={handleChangeRefundType}></lightning-input-field>  
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2"></div>
+                            
+                        
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <lightning-input                                            
+                                        type="checkbox" 
+                                        variant="label-stacked"
+                                        label="Create Transfer Payment?"
+                                        value={iscreatetransfer}
+                                        checked={iscreatetransfer}   
+                                        disabled=true                             
+                                        onchange={handleCheckedCreateTransferPayment}></lightning-input>
+                            </div>
+
+                            <template if:true={allowCreateTransfer}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                    <lightning-input-field field-name="Transfer_to__c" required disabled={showTransferto}></lightning-input-field>
+                                    <template if:true={isShowTransferSameClientMsg}>
+                                        <div class="slds-m-left_x-small slds-form-element__help slds-text-color_error">
+                                            {transferSameClientMsg}
+                                        </div>
+                                    </template>
+                                </div>
+                            </template>
+                            <template if:false={allowCreateTransfer}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2"></div>
+                            </template>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <lightning-input-field field-name="Withdrawal_Current_Balance__c" disabled></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <!-- <lightning-input-field field-name="Allow_Create__c" disabled></lightning-input-field> -->
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <lightning-input-field field-name="Amount__c" required></lightning-input-field>
+                                <template if:true={isShowbalanceisnotEnoughMsg}>
+                                    <div class="slds-m-left_x-small slds-form-element__help slds-text-color_error">
+                                        {balanceisnotEnoughMsg}
+                                    </div>
+                                </template>                                
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <lightning-input-field field-name="Assignee__c" required></lightning-input-field>   
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                                <lightning-input-field field-name="Approver__c"></lightning-input-field>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <lightning-input-field field-name="Note__c" required></lightning-input-field>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <lightning-button variant="brand" type="submit" name="save" label="Save" class="slds-m-right_x-small" ></lightning-button>
+
+                                <lightning-button variant="brand" type="submit" name="cancel" label="Cancel" onclick={handleCancel}></lightning-button>
+                                                                
+                            </div>
+                        </div>        
+                    </lightning-record-edit-form>
+                    </template>                   
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+
+    
+</template>

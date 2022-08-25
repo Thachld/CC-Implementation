@@ -1,0 +1,343 @@
+<apex:page applyBodyTag="false" renderAs="pdf" action="{!getHom}" controller="cc_HOM_indivisual_client_Controller"   contentType="text/html;charset=UTF-8"
+           >
+    <head>
+        <style type="text/css" >
+            body { font-family: Arial Unicode MS; font-size: 14px; }
+            font { font-family: Arial Unicode MS !important; }
+             @page {
+                padding-top: 40px;
+            size: 8.27in 11.69in;
+                @top-center {
+                    content: element(header);
+                }
+                @bottom-left {
+                    content: element(footer);
+                }
+            }
+                        div.header {
+            padding-bottom: 12px;
+            position: running(header);
+            height:70px;
+            font-size:12px;
+            }
+            div.footer {
+                display: block;
+                padding-bottom: 50px;
+                position: running(footer);
+                font-size:12px;
+                border-top:1px solid;
+            color:#afaba5;
+            }
+            .pagenumber:before {
+            content: counter(page);
+            }
+            .pagecount:before {
+            content: counter(pages);
+            }
+            .content {
+            font-size:11px;
+            
+            
+            }
+            table#homevalues{
+                border-collapse: collapse;
+            }
+            table#homevalues  tr, table#homevalues  td{
+                border: 1px solid #999 !important;
+              padding: 5px;
+              text-align: left;
+            page-break-inside: avoid;
+	word-wrap: break-word;
+            
+            }
+            
+             .boldedUnicode { 
+            font-weight:800;
+            	font-size:14px;
+           
+             }
+            .boldedUnicode1 { 
+            font-weight:800;
+            	font-size:13.5px;
+           
+             }
+            .bolded { font-family: 'Arial';
+                      font-weight: bold; }
+            
+        </style>
+    </head>
+   
+    <body>  
+        
+        <apex:messages />
+    <div class="header" style="border-bottom:1px solid;">
+        <div >
+            <div style="width:100%;padding-top: 10px; ">
+                <img style="width:200px; height:50px;" src="{!URLFOR($Resource.HomDocumentResource,'logo.png')}" />
+            </div>
+            
+            <div style="color:#afaba5;width:400px;float:left;display:inline-block;padding-left:65px;padding-top:0px;">E-mail: info@coccoc.vn - Website: www.coccoc.com
+            </div>
+            <div style="float:right;width:200px;display:inline-block;text-align: right;">
+                <span class="pagenumber"/>/<span class="pagecount"/>
+            </div>
+            
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            <div style="float:left;width:300px;padding-top:13px;font-size:16px;">
+                <strong>COC COC Company Limited</strong>
+            </div>
+            <div style="float:right; ">
+                Address: R1202, 12<sup>th</sup> Floor, HITTC Building, 185 Giang Vo Rd, Hanoi <br/>
+                Tel: 04 35123776   E-mail: info@coccoc.comWebsite: www.coccoc.com
+            </div>
+        </div>
+    </div>
+    <table class="content">
+        <tr>
+            <td>
+              
+    
+    <div >
+        
+        <div style="text-align: center;">
+             <strong style="font-size:16px;">BIÊN BẢN NGHIỆM THU</strong> <br />
+                <strong>Tài khoản quảng cáo số: {!qcAccount.QC_Account_Id__c}</strong>
+        </div>
+       
+      
+        Hôm nay, ngày&nbsp;<apex:outputText value="{0,date,dd}">
+                        <apex:param value="{!hom.End_date__c}" /> 
+                    </apex:outputText>&nbsp;
+                tháng&nbsp;<apex:outputText value="{0,date,MM}">
+                        <apex:param value="{!hom.End_date__c}" /> 
+                    </apex:outputText> &nbsp;năm &nbsp;
+                     <apex:outputText value="{0,date,yyyy}">
+                        <apex:param value="{!hom.End_date__c}" /> 
+                    </apex:outputText> &nbsp;tại Hà Nội, chúng tôi gồm có
+      
+        <table width="661">
+            <tbody>
+               <tr>
+                    <td width="103">
+                        Email đăng ký
+                       
+                    </td>
+                    <td width="18">
+                        :
+                      
+                    </td>
+                    <td width="540">
+                       {!qcAccount.name}
+                      
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                      
+                        Điện thoại
+                    </td>
+                    <td width="18">
+                        :
+                      
+                    </td>
+                    <td width="540">
+                       {!qcAccount.Individual_Phone__c}
+                      
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" width="661">
+                       (Sau đây được gọi là <span class="boldedUnicode">"Bên A"</span>)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" width="661">
+                        <strong style="font-size:16px;">CÔNG TY TNHH CỐC CỐC</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                       Địa chỉ
+                    </td>
+                    <td width="18">
+                        :
+                    </td>
+                    <td width="540">
+                        Phòng 1202, tầng 12, tòa nhà HITTC, 185 Giảng Võ, phường Cát Linh, quận Đống Đa, TP Hà Nội
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                        Tài khoản số
+                    </td>
+                    <td width="18">
+                        :
+                    </td>
+                    <td width="540">
+                        0011004193020 – VND  Tại Ngân hàng TMCP Ngoại thương Việt Nam Sở Giao dịch
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                       Mã số thuế
+                    </td>
+                    <td width="18">
+                        :
+                    </td>
+                    <td width="540">
+                        0102963440
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                        Đại diện bởi
+                    </td>
+                    <td width="18">
+                        :
+                    </td>
+                    <td width="540">
+                        (Bà)<span class="boldedUnicode"> Nguyễn Quỳnh Ngọc </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                        Chức vụ:
+                    </td>
+                    <td width="18">
+                        :
+                    </td>
+                    <td width="540">
+                        <span class="boldedUnicode"> Nhân viên hành chính</span> (Theo ủy quyền số 01/2016/QĐ-UQ) 
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" width="661">
+                        (Sau đây được gọi là <span class="boldedUnicode">"Bên B"</span>)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" width="661">
+                        (Bên A và Bên B sau đây được gọi riêng là “<span class="boldedUnicode">mỗi Bên</span>” và gọi chung là "<span class="boldedUnicode">các Bên</span>")
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+       <div>
+           Xét vì, Bên A đã đăng ký và thực hiện việc nạp tiền vào tài khoản {!qcAccount.name} ("<span class="boldedUnicode">tài khoản</span>")  trên hệ thống Quảng cáo qc.coccoc.com của Bên B. Nay các Bên lập Biên bản nghiệm thu dịch vụ (“<span class="boldedUnicode">Biên bản</span>”) này để xác nhận số tiền sử dụng trong Tài khoản và các dịch vụ đã sử dụng với các nội dung sau:
+        </div> 
+        <br/>
+        <span class="boldedUnicode">1. </span>Các Bên xác nhận nghiệm thu từ ngày&nbsp; <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                        <apex:param value="{!hom.Start_date__c}" /> 
+                    </apex:outputText>&nbsp; đến ngày &nbsp;<apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                        <apex:param value="{!hom.End_date__c}" /> 
+                    </apex:outputText>&nbsp; đối với các dịch vụ lần lượt như sau:<br/>
+        <br/>
+        <!--test-->
+      
+        <!-- end test-->
+        <table width="660" id="homevalues" style="-fs-table-paginate: paginate;" cellpadding="5" cellspacing="0" >
+            <tbody>
+                <tr>
+                    <td width="48">
+                        <span class="boldedUnicode1">STT</span>
+                    </td>
+                    <td width="306">
+                       <span class="boldedUnicode1">T&ecirc;n dịch vụ</span>
+                    </td>
+                    <td width="120">
+                       <span class="boldedUnicode1">Số lần hiển thị</span>
+                    </td>
+                    <td width="78">
+                       <span class="boldedUnicode1">Số Click </span>
+                    </td>
+                    <td width="120">
+                        <span class="boldedUnicode1">Chi ph&iacute; </span>
+                    </td>
+                </tr>
+                <apex:variable value="{!1}" var="rowNum"/> 
+                <apex:repeat value="{!hombyAds}" var="homvl"   id="theRepeat" >
+                     <tr >
+                        <td width="48">
+                            {!rowNum}
+                           <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                        </td>
+                        <td width="306">
+                          {!homvl.Name}
+                        </td>
+                        <td width="108">
+                           {!FLOOR(homvl.show)}
+                        </td>
+                        <td width="78">
+                          {!homvl.click}
+                        </td>
+                        <td width="120">
+                             <apex:outputText value="{0,number, ###,###.##}">
+                                <apex:param value="{!FLOOR(homvl.netspending)}"/>
+                          </apex:outputText>
+                         
+                        </td>
+                    </tr>
+                </apex:repeat>
+              
+                <tr>
+                    <td colspan="4" width="540">
+                        <strong>Tổng chi phí</strong>
+                    </td>
+                    <td width="120">
+                        
+                           <apex:outputText value="{0,number, ###,###.##}">
+                                <apex:param value="{!FLOOR(sum)}"/>
+                          </apex:outputText>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <span class="boldedUnicode">2. </span>Biên bản này được lập và ký nhận bởi người có thẩm quyền của mỗi Bên. Biên bản được lập thành 02 (hai) bản, mỗi Bên giữ 01 (một) bản.
+       
+        <table width="679" style="padding-left:50px; page-break-inside: avoid;">
+            <tbody>
+                <tr>
+                    <td width="229">
+                        <p><span class="boldedUnicode">ĐẠI DIỆN B&Ecirc;N A</span></p>
+                         <p>&nbsp;</p>
+                    </td>
+                    <td width="216">
+                        <p><span class="boldedUnicode">ĐẠI DIỆN B&Ecirc;N B</span></p>
+                        <p>&nbsp;</p>
+                    </td>
+                    <td width="235">
+                        <p><strong>&nbsp;</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="229">
+                                           </td>
+                    <td width="216">
+                        <br/>
+                        <br/>
+                        <span class="boldedUnicode">Nguyễn Quỳnh Ngọc</span><br/>
+                       <span class="boldedUnicode">Nhân viên hành chính</span>
+                    </td>
+                    <td width="235">
+                       <br/>
+                        <br/>
+                        <strong></strong><br/>
+                        <span class="boldedUnicode">Nhân viên hệ thống</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      
+    </div>   
+                
+                 </td>
+        </tr>
+        
+        </table> 
+    </body>
+</apex:page>

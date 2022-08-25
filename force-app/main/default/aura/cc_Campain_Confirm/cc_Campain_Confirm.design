@@ -1,0 +1,4 @@
+<design:component >
+    <design:attribute name = "campaign" label = "Campaign Id"/>
+    <design:attribute name = "memberid" label = "Member Id"/>
+</design:component>

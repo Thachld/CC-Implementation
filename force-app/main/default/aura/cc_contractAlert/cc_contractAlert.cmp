@@ -1,0 +1,21 @@
+<aura:component controller = "cc_discountController" implements = "force:hasrecordId,flexipage:availableForAllPageTypes">
+    <aura:attribute name = "showwarning" type="Boolean" default="false"/>
+    <aura:attribute name = "showerror" type="Boolean" default="false"/>
+   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+    <aura:if isTrue="{!v.showwarning}">
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+            <span>
+                <lightning:icon iconName="utility:warning" size="x-small" class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small"/>
+            </span>
+            <h2>Contract missing Discount by Rank, please update these data end of this Page!</h2>
+
+            <a class="slds-notify__close"  href="javascript:void(0);" onclick="{!c.handleCloseWarning}">
+                <lightning:icon iconName = "utility:close" size="x-small" class="slds-button slds-button_icon slds-button_icon-small"/>
+                <span class="slds-assistive-text">Close</span>
+            </a>
+        </div>
+    </aura:if>    
+</aura:component>

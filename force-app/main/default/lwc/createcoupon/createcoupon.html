@@ -1,0 +1,107 @@
+<!--
+  @description       : Create Coupon Compoment
+  @author            : @Thach Le
+  @group             : Create Coupon
+  @last modified on  : 07-28-2022
+  @last modified by  : @Thach Le
+-->
+<template>
+    <!-- <lightning-quick-action-panel title="Create Coupon"> -->
+        <template if:true={isSpinner}>
+            <c-coccocspinner spinnerclass = 'medium-spinner'></c-coccocspinner>                    
+        </template>    
+        <template if:false={isSpinner}>
+            <lightning-record-edit-form 
+                            object-api-name="Coupon__c"     
+                            onsubmit={handleSubmit}
+                            onsuccess={handleSuccess}
+                            onerror={handleError}>       
+                    
+                <div class="slds-grid slds-wrap">
+                    <!-- Row 1 -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">                        
+                        <lightning-input-field field-name="Name" required ></lightning-input-field>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                        <lightning-input-field  field-name="Campaign__c" 
+                                                required 
+                                                disabled={isCreateFromCampaign}
+                                                value={recordId}
+                                                onchange={handleChangeCampaign}></lightning-input-field>                                                
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                        <lightning-input-field  field-name="QC_Account__c" 
+                                                required
+                                                onchange={handleChangeQCAccount}></lightning-input-field>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                        <lightning-input-field field-name="ExpirationDate__c"  required></lightning-input-field>
+                    </div>
+                    
+                    <template if:true={isShowSpendingExpiredDate}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input-field field-name="SpendingExpirationDate__c"  required></lightning-input-field>    
+                        </div>   
+                    </template> 
+                    
+                    <template if:true={isIntervalSpendingDays}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input-field field-name="Interval_Spending_Days__c"  required></lightning-input-field>    
+                        </div>
+                    </template>
+
+                        
+                    <!-- Row 4 -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                        <lightning-input-field field-name="Assignee__c" required></lightning-input-field>  
+                    </div>
+                  
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                        <lightning-input-field field-name="Amount__c" required></lightning-input-field>  
+                    </div>
+                    
+
+                    <!-- Row 5 -->
+                    <template if:true={isPromotionCondition}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                            <div class="slds-form-element slds-form-element_stacked">
+                                <label class="slds-form-element__label">Condition Type</label>
+                                <p class="slds-text-heading_small">
+                                    <lightning-formatted-text value={conditionType}></lightning-formatted-text>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input-field field-name="Condition_Amount__c" required></lightning-input-field>  
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input-field field-name="Start_Date__c" required></lightning-input-field>  
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input-field field-name="End_Date__c" required></lightning-input-field>  
+                        </div>
+                    </template>
+
+                    <!-- Row 6 -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <lightning-input-field field-name="Note__c" required></lightning-input-field>  
+                    </div>
+                      
+
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <lightning-button variant="brand" type="submit" name="save" label="Save" class="slds-m-right_x-small" ></lightning-button>
+                        <lightning-button variant="brand" type="submit" name="cancel" label="Cancel" onclick={handleCancel}></lightning-button>                                                        
+                    </div>
+
+                </div>        
+            </lightning-record-edit-form>
+        </template>  
+    <!-- </lightning-quick-action-panel> -->
+</template>

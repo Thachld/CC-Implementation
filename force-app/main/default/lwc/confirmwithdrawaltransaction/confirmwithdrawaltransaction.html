@@ -1,0 +1,33 @@
+<template>
+    <!-- <lightning-quick-action-panel title="Quick Action Title"> -->
+        <template if:true={isSpinner}>
+            <c-coccocspinner spinnerclass = 'medium-spinner'></c-coccocspinner>
+        </template>
+        <template if:false={isSpinner}>
+            <lightning-card>
+                <h3 slot="title">
+                    <lightning-icon icon-name="action:approval" size="xx-small" class="slds-m-right_small"></lightning-icon>
+                    Confirm Withdrawal Transaction
+                </h3>
+
+                <div class="slds-text-heading_large slds-text-align_center slds-m-around_medium">
+                    <h2>Do you want to confirm withdrawal transaction?</h2>
+                </div>
+                
+                <template if:true={isShowError}>
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error slds-m-top_medium">
+                        <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small">
+                            <lightning-icon icon-name="utility:error" alternative-text="Error" title="Error" variant="inverse"></lightning-icon>
+                        </span>
+        
+                        <h2>{errorMessage}</h2>
+                    </div>
+                </template>            
+                <div slot="footer" class="slds-text-align_left">
+                    <lightning-button variant="brand" type="submit" name="confirm" label="Confirm" onclick={handleConfirm} class="slds-m-right_x-small"></lightning-button>
+                    <lightning-button variant="brand" type="submit" name="cancel" label="Cancel" onclick={handleCancel}></lightning-button>
+                </div>        
+            </lightning-card>
+        </template>
+    <!-- </lightning-quick-action-panel> -->
+</template>

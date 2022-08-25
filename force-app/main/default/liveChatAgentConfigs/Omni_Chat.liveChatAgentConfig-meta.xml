@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiveChatAgentConfig xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <assignments>
+        <profiles>
+            <profile xsi:nil="true"/>
+            <profile>hotline profile</profile>
+        </profiles>
+        <users>
+            <user>lydp@coccoc.com</user>
+            <user>hanglt1@coccoc.com</user>
+            <user>giangpt@coccoc.com</user>
+        </users>
+    </assignments>
+    <autoGreeting>Chào mừng quý khách! Cốc Cốc có thể giúp gì cho quý khách?</autoGreeting>
+    <criticalWaitTime>30</criticalWaitTime>
+    <customAgentName>CSKH</customAgentName>
+    <disableTransferConferenceGreeting>false</disableTransferConferenceGreeting>
+    <enableAgentFileTransfer>true</enableAgentFileTransfer>
+    <enableAgentSneakPeek>true</enableAgentSneakPeek>
+    <enableAssistanceFlag>true</enableAssistanceFlag>
+    <enableAutoAwayOnDecline>false</enableAutoAwayOnDecline>
+    <enableAutoAwayOnPushTimeout>false</enableAutoAwayOnPushTimeout>
+    <enableChatConferencing>false</enableChatConferencing>
+    <enableChatMonitoring>true</enableChatMonitoring>
+    <enableChatTransferToAgent>true</enableChatTransferToAgent>
+    <enableChatTransferToButton>true</enableChatTransferToButton>
+    <enableChatTransferToSkill>true</enableChatTransferToSkill>
+    <enableLogoutSound>true</enableLogoutSound>
+    <enableNotifications>true</enableNotifications>
+    <enableRequestSound>true</enableRequestSound>
+    <enableSneakPeek>true</enableSneakPeek>
+    <enableVisitorBlocking>false</enableVisitorBlocking>
+    <enableWhisperMessage>true</enableWhisperMessage>
+    <label>Omni Chat Agent</label>
+    <supervisorDefaultAgentStatusFilter>Online</supervisorDefaultAgentStatusFilter>
+    <supervisorDefaultButtonFilter>Omni_livechat</supervisorDefaultButtonFilter>
+    <transferableButtons>
+        <button>Omni_livechat</button>
+    </transferableButtons>
+</LiveChatAgentConfig>
