@@ -1,0 +1,1052 @@
+@font-face {    
+    font-family: "SVN-Poppins-SemiBold";
+    src: url('/sfsites/c/resource/helpcentericon/fonts/SVN-Poppins/SVN-Poppins-SemiBold.otf') format('opentype');
+}
+
+@font-face {    
+    font-family: "SVN-Poppins-Medium";
+    src: url('/sfsites/c/resource/helpcentericon/fonts/SVN-Poppins/SVN-Poppins-Medium.otf') format('opentype');
+}
+
+@font-face {    
+    font-family: "SVN-Poppins-Light";
+    src: url('/sfsites/c/resource/helpcentericon/fonts/SVN-Poppins/SVN-Poppins-Light.otf') format('opentype');
+    
+}
+
+@font-face {    
+    font-family: "SVN-Poppins";
+    src: url('/sfsites/c/resource/helpcentericon/fonts/SVN-Poppins/SVN-Poppins-Regular.otf') format('opentype');    
+}
+/****-----------------Spinner------------------------------*/
+
+.siteforceLoadingBalls .loadingBall.third {
+    display:none;
+}
+
+.siteforceLoadingBalls .loadingBall{
+    animation:none;
+    height: 0rem
+}
+
+.siteforceLoadingBalls.global {   
+    /*top: 50%;
+    left: 50%;*/	
+	transform: translate(-40%, -50%)!important;  
+	-moz-transform: translate(-40%, -50%)!important;  
+	-webkit-transform: translate(-40%, -50%)!important;    
+	-o-transform: translate(-40%, -50%)!important;   
+	-ms-transform: translate(-40%, -50%)!important;
+
+    background-color:transparent;
+    border: 0.375rem solid #e5e5e5;
+  	border-left-color: #4FBA69;
+  	width: 3.75rem !important;
+  	height: 3.75rem !important;
+    padding: 0rem !important;
+  	border-radius: 50%;
+  	animation: spin 1s linear infinite;
+}
+	
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/****-----------------Spinner------------------------------*/
+
+/****-----------------Chat------------------------------*/
+
+.embeddedServiceSidebarMinimizedDefaultUI{
+	background-color: #4FBA69!important;   
+    border:none !important;   
+}
+.forceCommunityEmbeddedServiceHelpButton .flatButton {
+	max-width: 18em!important;   
+}
+ .embeddedServiceSidebar .sidebarHeader h2{
+	font-family: 'SVN-Poppins'!important;   
+ }
+ 
+ .embeddedServiceSidebar .sidebarBody span{
+	font-family: 'SVN-Poppins'!important;    
+ }
+ 
+.forceCommunityEmbeddedServiceHelpButton .flatButton{
+	font-family: 'SVN-Poppins'!important;    
+ }
+ 
+ .embeddedServiceSidebar.modalContainer{
+	font-family: 'SVN-Poppins'!important;    
+ }
+
+.embeddedServiceLiveAgentStateChatInputFooter .chasitorText{
+	font-family: 'SVN-Poppins'!important;    
+}
+
+.uiButton--default{
+	background: #4FBA69!important; 
+	font-size: 1rem!important; 
+}
+
+/****-----------------Chat------------------------------*/
+
+
+mark {    
+    background: #97c93d!important;
+}
+input{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: normal;
+    font-style: normal;    
+    font-size:1rem !important;
+    line-height:150% !important;	
+    height: 40px;
+}
+
+input:active,
+input:focus{
+	border: #4FBA69 !important;
+    box-shadow: #4FBA69!important;
+}
+.view-more-button{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: normal;
+    font-style: normal;    
+    font-size:0.875rem !important;
+    line-height:150% !important;
+}
+
+#submitButton{
+    font-family: 'SVN-Poppins-SemiBold' !important;    
+    font-weight: normal!important;
+    font-style: normal!important; 
+    font-size:0.875rem !important;      
+    line-height:1rem;  
+	text-transform: capitalize;
+}
+
+.slds-page-header__title{
+    font-family: 'SVN-Poppins-SemiBold'!important;    
+    font-weight: normal!important;
+    font-style: normal!important; 
+    font-size:1.25rem !important;    
+}
+
+.slds-form-element__label{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: normal;
+    font-style: normal;    
+    font-size:1rem !important;
+    line-height:150% !important;
+}
+
+
+.forceCommunityHeadline .headlineTitle .headlineTitleText span{
+	font-family: 'SVN-Poppins-SemiBold'!important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-size: 1.125rem !important;
+	line-height: 150% !important;
+	color: #2A2B2B !important;	
+	text-transform:capitalize;
+}
+
+.forceCommunityHeadline .headlineTitle {
+    border-bottom: 1px solid #d7d7d7!important;     
+    padding-bottom: 1rem !important;     
+    padding-top: 1rem !important;
+	text-align:left!important;
+}
+
+.listContent .forceCommunityTopArticleListForTopic .topicHeader .topicHeaderLink{ 
+    font-family: 'SVN-Poppins-SemiBold'!important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-size: 1.125rem !important;
+	line-height: 150% !important;
+	color: #2A2B2B !important;
+	text-decoration: none;
+}
+
+.listContent .forceCommunityTopArticleListForTopic .topicHeader{
+    border-bottom: 1px solid #d7d7d7;
+    padding-top: 1rem !important;
+	padding-bottom: 1.188rem !important;
+}
+
+
+.contactSupportButton{
+	font-family: 'SVN-Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif!important;
+	font-style: normal!important;
+	font-weight: 600!important;
+	font-size: 0.875rem!important;
+	line-height: 1rem!important;
+	color: #FFFFFF!important;
+	border-radius: 0.25rem!important;
+	background-color:#4FBA69!important;
+	padding: 0.85rem 1rem!important;
+	text-transform: capitalize;
+}
+
+.contactSupportButton:hover{
+	background-color:#14842F!important;
+}
+
+.contactSupportButton:focus,
+.contactSupportButton:active{
+	background-color:#005824!important;
+}
+
+
+.forceCommunityTopicMetrics .value{
+	font-family: 'SVN-Poppins-SemiBold'!important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-size: 1.125rem !important;
+	line-height: 150% !important;
+	color: #2A2B2B !important;
+	text-transform: capitalize;
+}
+
+.forceCommunityTopicMetrics .slds-text-body--small{
+	font-family: 'SVN-Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif!important;
+	font-style: normal!important;
+	font-weight: 600!important;
+	font-size: 0.875rem!important;
+	line-height: 1rem!important;	
+	color: #848687 !important;
+}
+
+
+ .slds-form-element .slds-form-element__label{
+	font-family: 'SVN-Poppins'!important;
+	font-style: normal!important;	
+	font-weight: normal!important;	
+	font-size: 1rem!important;	
+	line-height: 150%!important;	
+	color: #2A2B2B!important;	
+ }
+ 
+  .slds-form-element .slds-form-element__help{
+	font-family: 'SVN-Poppins'!important;
+	font-style: normal!important;	
+	font-weight: normal!important;	
+	font-size: 0.875rem!important;	
+	line-height: 150%!important;	
+  }
+ 
+ .pageLevelErrors .genericNotification{
+	 font-family: 'SVN-Poppins-SemiBold'!important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-size: 1.125rem !important;
+	line-height: 150% !important;
+ }
+ 
+ .pageLevelErrors .errorsList{
+	font-family: 'SVN-Poppins'!important;
+	font-style: normal!important;	
+	font-weight: normal!important;	
+	font-size: 1rem!important;	
+	line-height: 150%!important;	
+ }
+ 
+ 
+.search-deflectionContainer .search-deflectionItemSearch,
+.search-deflectionContainer .search-deflectionItem,
+.search-deflectionContainer li{
+	font-family: 'SVN-Poppins'!important;
+	font-style: normal!important;	
+	font-weight: normal!important;	 
+	 
+ }
+ 
+ .search-deflectionContainer .search-deflectionItemDetail{
+	 display:none!important;	
+ }
+ 
+ .forceCommunityThemeHeaderCompact .themeHeaderInner.centerAlignLogo-false.searchStyle-expanded .themeUtils .themeSearch input{
+	font-size: 0.875rem !important;
+    line-height: 150% !important;
+ }
+ 
+ 
+ .helpCenterHomeHero .contentContainer  .content .contentTitle{
+	text-shadow: none !important;
+ }
+ 
+ 
+ .forceTopicFeaturedTopics .topicItem .topicLink .topicContent:hover {
+		background-color: rgba(0, 0, 0, .6) !important;
+	}
+
+	.forceTopicFeaturedTopics .topicItem .topicLink .topicContent:focus {
+		background-color: #14842F !important;
+	}
+
+	.forceTopicFeaturedTopics .topicItem .topicLink .topicContent .topicLabel{
+			font-family: 'SVN-Poppins-SemiBold'!important;
+			font-weight: normal !important;    	
+			font-size:1.125rem !important;
+			line-height:150% !important;
+			color:#FFFFFF!important;      
+			text-shadow: 0px 0.125rem 0.25rem rgba(0, 0, 0, 0.6)!important;
+			text-transform: capitalize;
+	}
+
+
+.selfServiceArticleTopicList .slds-pill .forceTopicTopicLink{
+	max-width:100%!important;
+}
+
+.forceCommunityContactSupportButton.contactSupportButton  {
+	width: 50% !important;
+}
+
+/**************Header***********************/
+
+.themeLayoutStarterWrapper .spacer{
+	display:none!important;
+}
+.forceCommunityThemeLogo .logoImage{
+    width:8.75rem !important;
+    height:2.5rem !important;
+}
+
+.forceCommunityThemeSearchHero .search-box{
+	border:none;
+	background: #FFFFFF;
+	box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.14);
+	border-radius: 0.5rem;
+}
+
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer{
+	width: 20%!important;
+}
+
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector lightning-combobox{
+    width:100%;
+    float:right;
+}
+
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector input{
+    width:50%!important;
+    float:right!important;
+}
+
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-combobox_container button{
+	border:none !important; 
+}
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-combobox_container button:focus{
+	border:none !important; 
+	box-shadow: none !important; 
+}
+
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-combobox_container button.slds-combobox__input{
+	text-align: right;
+    padding-right: 15%;
+}
+	
+
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-form-element__control input
+{
+    border:none !important; 
+    font-family: 'SVN-Poppins'!important;
+    font-weight: normal;
+    font-style: normal;    
+    font-size:0.875rem !important;
+    line-height:1.125rem !important;
+	color:#6E7171;
+}
+
+
+
+.forceCommunityLanguageSelector43 svg {
+    fill:#6E7171!important;
+}
+
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-form-element__control input:active,
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-form-element__control input:focus,
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-form-element__control input:focus-visible,
+.themeLanguageSelectorContainer .themeLanguageSelector .slds-form-element__control input:focus-within{
+    border:none !important;  
+    box-shadow:none !important; 
+    text-decoration:none !important; 
+}
+
+
+.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-combobox_container .slds-input-has-icon .slds-input__icon{
+	top:40% !important; 
+}
+
+
+.forceCommunityThemeHeaderCompact .themeLogo {   
+    left: 15%!important; 
+}
+
+.forceCommunityThemeHeaderCompact .search-triggerButton svg {
+    fill: #4FBA69;
+}
+/**************Header***********************/
+
+
+/*************************************************/
+/**************Article List***********************/
+/*************************************************/
+.topicArticleList .top-article-item .article-title-link{
+    padding:0px !important;  
+	text-decoration: none!important;  
+}
+.topicArticleList .top-article-item .article-title-link .article-title,
+.comm-topic-trending-articles__item a{
+    border-bottom: none;
+    padding: 0.625rem 0;
+	text-decoration: none!important;  
+}
+
+.comm-page-contactsupport .comm-topic-trending-articles__item a{
+    border-bottom: 1px solid #F5F5F5 !important;
+}
+
+.topicArticleList .top-article-item .article-title-link .article-title,
+.comm-topic-trending-articles__item span{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: normal!important;   
+    font-style: normal!important;    
+    font-size:1rem !important;       
+}
+
+.comm-topic-trending-articles__item lightning-formatted-date-time{
+    font-size: 0.875rem!important;   
+	line-height: 150%!important;  
+    color:#848687 !important;  
+}
+
+.topicArticleList .top-article-item .article-title-link .slds-truncate {   
+    white-space: normal !important;
+}
+
+/*************************************************/
+/**************Article List***********************/
+/*************************************************/
+
+/*************************************************/
+/**************Home Theme*************************/
+/*************************************************/
+
+/**************Banner***************/
+.hero .contentContainer  .content .contentTitle{
+    font-family: 'SVN-Poppins-Medium'!important;
+    font-weight: normal;
+    font-style: normal;    
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    color:#2A2B2B !important;
+}
+
+
+.comm-page-home .hero .contentContainer .content .searchRegion .search-box input::placeholder{
+    font-family: 'SVN-Poppins'!important;    
+    font-style: normal;    
+    font-size:1rem !important;
+    line-height:150% !important;
+    font-weight:normal;
+    color:#848687!important;
+}
+/**************Banner***************/
+
+/*********Feature Topics************/
+
+.siteforceContentArea .comm-layout-column .ui-widget:not(:last-child), 
+.siteforceContentArea .cb-section_column .ui-widget:not(:last-child){
+    margin-bottom:0px !important;
+}
+
+.comm-page-home .body .siteforceContentArea a:focus{
+    box-shadow: none !important;
+}
+
+/*************************************************/
+/**************Home Theme*************************/
+/*************************************************/
+
+
+
+/*************************************************/
+/************ List Article ***********************/
+/*************************************************/
+
+.comm-page-topic .body input, 
+.comm-page-topic .body a,
+.comm-page-topic .body p,
+.comm-page-topic .body b,
+.comm-page-topic .body i,
+.comm-page-topic .body strong,
+.comm-page-topic .body ul,
+.comm-page-topic .body li,
+.comm-page-topic .body span{
+    font-family: 'SVN-Poppins';
+    font-weight: normal;
+    font-style: normal;    
+    font-size:1rem; 
+    line-height:150%; 
+    
+}
+
+.comm-page-topic .body .siteforceContentArea > .comm-layout-column {
+	padding-bottom:0px !important;
+}
+
+.comm-page-topic .body .selfServiceTopicArticleList .selfServiceArticleListItem {
+    padding: 20px 0 !important;
+}
+
+.comm-page-topic .body .article-column .forcePageBlock .slds-form-element__control h1{
+    font-family: 'SVN-Poppins';
+    font-weight: 600;
+    font-style: normal;    
+    font-size:1.5rem;
+    line-height: 135%;
+    color:#2A2B2B;
+    
+}
+
+.comm-page-topic .body .article-column .forcePageBlock .slds-form-element__control h2{
+    font-family: 'SVN-Poppins';
+    font-weight: 600;
+    font-style: normal;    
+    font-size: 1.125rem;
+	line-height: 150%;
+    color:#2A2B2B;
+}
+
+.comm-page-topic .body .article-column .forcePageBlock .slds-form-element__control h3{
+    font-family: 'SVN-Poppins';
+    font-weight: 600;
+    font-style: normal;    
+    font-size: 1rem;
+	line-height: 150%;
+    color:#4FBA69;
+    
+}
+
+.comm-page-topic .body .article-column .forcePageBlock .slds-form-element__control h4{
+    font-family: 'SVN-Poppins';
+    font-weight: 600;
+    font-style: normal;    
+    font-size: 1rem;
+	line-height: 150%;
+    color:#2A2B2B
+}
+
+.comm-page-topic .body .article-column .forcePageBlock .slds-form-element__control h5{
+    font-family: 'SVN-Poppins';
+    font-weight: normal;
+    font-style: normal;    
+    font-size: 1rem;
+	line-height: 150%;
+    color:#2A2B2B;
+    
+}
+
+.comm-page-topic .body .article-column .forcePageBlock .slds-form-element__control h6{
+    font-family: 'SVN-Poppins';
+    font-weight: normal;
+    font-style: normal;    
+    font-size: 0.875rem;
+	line-height: 150%;
+    color:#2A2B2B;
+    
+}
+
+.comm-page-topic .article-list .article-list .article-item .article-link .article-head{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: 600;
+    font-style: normal;
+    font-size:1rem !important;
+    line-height:150% !important;
+    margin-bottom:0px !important;
+}
+
+.comm-page-topic .article-list .article-list .article-item .footer{
+	display:none!important;
+}
+
+.comm-page-topic .article-list .slds-button{
+	font-family: 'SVN-Poppins'!important;
+    border-radius:0.125rem !important;
+    height:2.188rem;
+    padding-top:0rem!important;
+    padding-bottom:0rem!important;
+	text-transform:capitalize;
+}
+
+.comm-page-topic .contactSupportButton{
+    border-radius:0.25rem !important;
+}
+
+.comm-page-topic .article-list .article-list .article-item .footer .view-count{
+	font-family: 'SVN-Poppins'!important;
+    font-weight: normal;
+    font-style: normal;    
+    font-size: 0.875rem;
+	line-height: 150%;
+    color:#848687;
+    
+}
+
+.comm-page-topic .article-list .article-list .article-item .footer .dot,
+.comm-page-topic .article-list .article-list .article-item .footer .date,
+.comm-page-topic .article-list .article-list .article-item .footer .article-type{
+	display:none!important;
+}
+
+.comm-page-topic .slds-grid--vertical .slds-col_padded,
+.comm-page-topic .slds-grid--vertical .slds-col--padded{
+	padding-right:0px!important;
+}
+/************ List Article ********************/
+
+
+/******************************************************************/
+/****-----------------Artical detail------------------------------*/
+/******************************************************************/
+
+.comm-page-article .selfServiceArticleLayout input, 
+.comm-page-article .selfServiceArticleLayout p,
+.comm-page-article .selfServiceArticleLayout i,
+.comm-page-article .selfServiceArticleLayout ul,
+.comm-page-article .selfServiceArticleLayout li,
+.comm-page-article .selfServiceArticleLayout span{
+    font-family: 'SVN-Poppins-Light'!important;
+    font-weight: normal;
+    font-style: normal;    
+    font-size:1rem; 
+    line-height:150%; 
+    color:#2A2B2B !important;
+	margin-bottom: 20px!important;
+}
+
+.comm-page-article .selfServiceArticleLayout a{
+	 font-family: 'SVN-Poppins-Light'!important;
+    font-weight: normal;
+    font-style: normal;    
+    font-size:1rem; 
+    line-height:150%; 
+    color:#4FBA69 !important;
+	margin-bottom: 20px!important;
+	text-decoration: underline;
+}
+
+.comm-page-article .selfServiceArticleLayout .forceOutputRichText ,
+.comm-page-article .selfServiceArticleLayout .uiOutputRichText {
+	 font-family: 'SVN-Poppins-Light';
+    font-weight: normal;
+    font-style: normal;    
+    font-size:1rem; 
+    line-height:150%; 
+	color:#2A2B2B ;
+}
+
+.comm-page-article .comm-topic-trending-articles p,
+.comm-page-article .comm-topic-trending-articles i,
+.comm-page-article .comm-topic-trending-articles ul,
+.comm-page-article .comm-topic-trending-articles li,
+.comm-page-article .comm-topic-trending-articles span,
+.comm-page-article .comm-topic-trending-articles div{
+	font-family: 'SVN-Poppins'!important;
+    font-weight: normal;
+    font-style: normal;    
+    font-size:1rem; 
+    line-height:150%; 
+    color:#2A2B2B !important;
+}
+
+.comm-page-article .selfServiceArticleLayout img{
+	margin: 20px auto !important;
+}
+
+.selfServiceArticleHeaderDetail .timestamp-icon {
+   vertical-align: sub !important;
+}
+
+.comm-page-article .slds-form_stacked .slds-form-element .slds-form-element__label{
+	display:none !important;
+}
+
+.comm-page-article .slds-pill_container--bare .slds-pill span,
+.comm-page-article .slds-pill_container--bare .slds-pill a{
+	margin-bottom: 0px !important;
+	text-decoration: none !important;
+}
+
+.comm-page-article .body .article-column .forcePageBlock .slds-form-element__control h1{
+    font-family: 'SVN-Poppins-SemiBold'!important;
+    font-weight: normal !important;
+    font-style: normal!important;   
+    font-size:1.5rem!important;
+    line-height: 135%!important;
+    color: #141515 !important;
+	margin-bottom: 20px!important;
+}
+
+.comm-page-article .body .article-column .forcePageBlock .slds-form-element__control h2{
+    font-family: 'SVN-Poppins-SemiBold'!important;
+    font-weight: normal!important;
+    font-style: normal!important;    
+    font-size: 1.125rem!important;
+	line-height: 150%!important;
+    color: #141515 !important;
+	margin-bottom: 16px !important;
+}
+
+.comm-page-article .body .article-column .forcePageBlock .slds-form-element__control h3{
+    font-family: 'SVN-Poppins-SemiBold'!important;
+    font-weight: normal!important;
+    font-style: normal!important;   
+    font-size: 1rem!important;
+	line-height: 150%!important;
+    color:#4FBA69!important;
+	margin: 20px 0 8px!important;
+}
+
+.comm-page-article .body .article-column .forcePageBlock .slds-form-element__control h4{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: 600!important;
+    font-style: normal!important;   
+    font-size: 1rem!important;
+	line-height: 150%!important;
+    color: #141515 !important;
+}
+
+.comm-page-article .body .article-column .forcePageBlock .slds-form-element__control h5{
+    font-family: 'SVN-Poppins-SemiBold'!important;
+    font-weight: normal!important;
+    font-style: normal!important;  
+    font-size: 0.875rem!important;
+	line-height: 150%!important;
+    color: #141515 !important;
+}
+
+.comm-page-article .body .article-column .forcePageBlock .slds-form-element__control h6{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: normal!important;
+    font-style: normal!important;
+    font-size: 0.875rem!important;
+	line-height: 150%!important;
+    color: #141515 !important;
+}
+
+.comm-page-article .body .comm-related-articles h2{
+    font-family: 'SVN-Poppins-SemiBold'!important;
+    font-weight: normal!important;
+    font-style: normal!important; 
+    font-size:1rem!important;
+    line-height:150%!important;
+}
+
+.selfServiceArticleTopicList.slds-pill_container--bare {   
+    padding: 0px !important;
+}
+.selfServiceArticleTopicList .slds-pill {  
+    border: 1px solid rgb(79, 186, 105) !important;
+}
+
+.comm-page-article .body .comm-related-articles ul .comm-related-articles__item{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: normal!important;
+    font-style: normal!important;  
+    font-size:1rem !important;
+    line-height:150% !important;
+}
+
+.selfServiceArticleLayout.zoom.article-column{
+    padding:0px !important;
+}
+
+.comm-page-article .article-column .summary .article-head{
+	padding-top: 1rem !important;
+    font-family: 'SVN-Poppins-SemiBold'!important;
+    font-weight: normal;
+    font-style: normal;
+    font-size:1.5rem;
+    line-height:150%;
+    margin:0px;
+}
+
+.comm-page-article .comm-layout-column .article-column .summary .meta{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: normal;
+    font-style: normal;  
+	padding-left:5px;
+}
+.comm-page-article .comm-layout-column .forcePageBlock .slds-form .slds-form-element_readonly{
+    border:none;
+}
+
+.comm-page-article .comm-layout-column .slds-pill__label .uiOutputText{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: normal;
+    font-style: normal;   
+    font-size:0.875rem !important;
+    line-height:1.125rem !important;   
+}
+
+.comm-page-article .comm-layout-column .article-column .summary .article-summary{
+    display:none;
+}
+
+.comm-page-article .comm-layout-column .article-column .summary .meta .date,
+.comm-page-article .comm-layout-column .article-column .summary .meta .date span,
+.comm-page-article .comm-layout-column .article-column .summary .meta .dot,
+.comm-page-article .comm-layout-column .article-column .summary .meta .article-type{
+    font-family: 'SVN-Poppins'!important;
+    font-weight: normal;
+    font-style: normal;   
+    font-size:0.875rem !important;
+    line-height:150% !important;   
+}
+
+.comm-page-article  article.content .forcePageBlock .slds-section:first-child {
+    display:none;
+}
+
+.comm-page-article article.content .forcePageBlock .test-id__field-label{
+ 	display:none;
+}
+
+
+.comm-page-article .slds-grid--vertical .slds-col_padded,
+.comm-page-article .slds-grid--vertical .slds-col--padded{
+	padding-right:0px!important;
+}
+
+/******************************************************************/
+/****-----------------Artical detail------------------------------*/
+/******************************************************************/
+
+
+/******************* ************************************/
+/******************* Search Page ************************/
+/******************* ************************************/
+
+.comm-page-global-search .body .forceCommunityHeadline .headlineTitle{
+	text-align:left !important;
+	padding-left:0.3rem !important;
+	padding-right:0.3rem !important;
+}
+
+.comm-page-global-search .body .forceSearchResultsRegion .forceSearchResultsList .slds-page-header{
+	padding-left:0.3rem !important;
+	padding-right:0.3rem !important;
+}
+	
+.comm-page-global-search .body .forceSearchResultsRegion .forceSearchResultsList .kbResultStencil{
+	padding-left:0.3rem !important;
+	padding-right:0.3rem !important;
+}
+
+.comm-page-global-search .body .forceSearchResultsRegion .forceSearchResultsList .searchResultsSummaryText{
+	font-family: 'SVN-Poppins'!important;
+}
+
+.comm-page-global-search .body .forceSearchResultsRegion .forceSearchResultsList .kbResultStencil .displayLabel,
+.comm-page-global-search .body .forceSearchResultsRegion .forceSearchResultsList .kbResultStencil .itemTitle {
+	font-family: 'SVN-Poppins-SemiBold'!important;
+	font-style: normal!important;
+	font-weight: normal!important;
+	font-size: 1.125rem!important;
+	line-height: 135%!important;
+	color: #2A2B2B!important;	
+}
+
+
+.comm-page-global-search .body .forceSearchResultsRegion .forceSearchResultsList .kbResultStencil .resultBody{
+	font-family: 'SVN-Poppins'!important;
+	font-style: normal!important;
+	font-weight: normal!important;
+	font-size: 0.875rem!important;
+	line-height: 150%!important;
+	color: #2A2B2B!important;
+}
+
+
+.comm-page-global-search .forceSearchResultsRegion .forceSearchResultsList .slds-tile{
+	max-width:65.625rem!important;
+}
+
+.comm-page-global-search .forceSearchResultsRegion .forceSearchResultsList .slds-tile .slds-tile__detail{
+	display:none !important;
+}
+
+.comm-page-global-search .forceCommunitySearch .slds-border_right, 
+.comm-page-global-search .forceCommunitySearch .slds-border_right .slds-medium-size_1-of-6{
+    display:none !important;
+}
+
+.comm-page-global-search .body .forceSearchResultsRegion .forceSearchResultsList .kbResultStencil .articleMetaData{
+	display:none !important;
+}
+
+
+.comm-page-global-search .slds-button{
+	font-family: 'SVN-Poppins'!important;  
+	text-transform: capitalize;
+}
+
+/******************* ************************************/
+/******************* Search Page ************************/
+/******************* ************************************/
+
+@media only screen and (max-width: 47.9375em){
+	.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer {
+		padding-bottom: 0px!important;
+	}	
+	
+	.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-combobox_container button.slds-combobox__input{		
+		padding-right: 25%;
+	}
+	
+	
+	.forceTopicFeaturedTopics ul li:first-child {
+		width: 100% !important;
+	}
+	
+	.forceTopicFeaturedTopicItem.topicItem {		
+		padding: 0.4rem!important;		
+	}	
+}
+
+@media (min-width: 36rem){  	
+	
+	.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer {
+		padding-bottom: 0px !important;
+	}
+	
+	.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-combobox_container button.slds-combobox__input{		
+		padding-right: 20%;
+	}
+	
+	.forceTopicFeaturedTopics ul li:first-child {
+		width: 100% !important;
+	}
+	
+	.forceTopicFeaturedTopicItem .topicItem {	
+		padding: 0.5rem!important;	    
+	}		
+}
+
+@media only screen and (min-width: 48rem){    
+    .themeHeader .themeHeaderInner{
+        max-width:45rem !important;
+    }
+    
+    .body {
+   	 	margin: 0 auto;	
+    	max-width: 45rem !important;
+	}
+	
+	.forceTopicFeaturedTopics .topicList {
+		margin:-0.75rem !important;
+	}
+    
+	.forceTopicFeaturedTopics .topicItem a{
+		border-radius:0.5rem !important;
+	}
+		
+	.forceTopicFeaturedTopics ul li:first-child {
+		width: 50% !important;
+		height: 11rem;
+		padding: 0.4rem;        
+	}
+		
+	.forceTopicFeaturedTopics .forceTopicFeaturedTopicItem.topicItem {
+		width: 25%;
+		height: 11rem;
+		padding: 0.4rem;        
+	}
+	
+	.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer {
+		padding-bottom: 0px !important;
+	}
+	
+	.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-combobox_container button.slds-combobox__input{		
+		padding-right: 17%;
+	}
+}
+
+
+@media (min-width: 62rem){    
+	.themeHeader .themeHeaderInner{
+        max-width:60rem !important;
+    }
+    
+    .body {
+   	 	margin: 0 auto;	
+    	max-width: 60rem !important;
+	}
+	
+	.forceTopicFeaturedTopics ul li:first-child {
+		width: 50% !important;
+		height: 15rem;
+		padding: 0.6rem;       
+	}
+		
+	.forceTopicFeaturedTopics .forceTopicFeaturedTopicItem.topicItem {
+		width: 25%;
+		height: 15rem;
+		padding: 0.6rem;    
+	}
+	
+	.forceCommunityThemeHeaderCompact .themeHeaderInner.centerAlignLogo-false.searchStyle-expanded .themeUtils .themeSearch {
+		width: 19rem!important;
+	}
+	
+	.forceCommunityThemeHeaderHelpCenter .themeLanguageSelectorContainer .themeLanguageSelector .slds-combobox_container button.slds-combobox__input{		
+		padding-right: 15%;
+	}
+}
+
+
+@media (min-width: 75rem){	
+	
+	.themeHeader .themeHeaderInner{
+        max-width:71rem !important;
+    }
+    
+    .body {
+   	 	margin: 0 auto;	
+    	max-width: 71rem !important;
+	}
+	
+	.forceTopicFeaturedTopics ul li:first-child {
+		width: 50% !important;
+		height: 17rem;
+		padding: 0.6rem;           
+	}
+		
+	.forceTopicFeaturedTopics .forceTopicFeaturedTopicItem.topicItem {
+		width: 25%;
+		height: 17rem;
+		padding: 0.6rem;        
+	}
+	
+	.forceCommunityThemeHeaderCompact .themeHeaderInner.centerAlignLogo-false.searchStyle-expanded .themeUtils .themeSearch {
+		width: 23rem!important;
+	}
+	
+	.forceCommunityThemeHeaderCompact .themeHeaderInner .themeUtils .themeSearch .search-box{
+		height:2.5rem;
+	}
+	
+	.forceCommunityThemeHeaderCompact .themeHeaderInner .themeUtils .themeSearch  .forceCommunityThemeSearch .search-box button,
+	.forceCommunityThemeHeaderCompact .themeHeaderInner .themeUtils .themeSearch  .forceCommunityThemeSearch .search-box input{
+		height:100%;
+	}
+	
+}
